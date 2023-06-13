@@ -12,14 +12,6 @@ export class ImgLazyLoadComponent {
   constructor(){
     this.empty = "";
   }
-
-  onMouseMove(event: MouseEvent): void {
-    const shiftX = -(event.pageX / window.innerWidth) * 20; // Adjust the value to control the shift range
-    const shiftY = -(event.pageY / window.innerHeight) * 20; // Adjust the value to control the shift range
-
-    const footer = event.target as HTMLElement;
-    footer.style.backgroundPosition = `${shiftX}px ${shiftY}px`;
-  }
     
   lazyLoad() {
     setTimeout(()=>{

@@ -1,1 +1,48 @@
-<p>login works!</p>
+<mat-card class="register">
+    <mat-card-title class="register__title">
+    <h1>{{formTitle}}</h1>
+    </mat-card-title>
+    <mat-card-content class="register__content">
+    <form [formGroup]="loginForm" 
+            (ngSubmit)="onSubmit()" 
+            class="register__form">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input 
+                matInput 
+                placeholder="en_trainer@gmail.com"
+                formControlName="email"
+                class="matHeight">
+                
+        </mat-form-field>
+       
+        <mat-form-field>
+        <mat-label>Пароль</mat-label>
+        <input 
+            matInput [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            class="matHeight">
+        <button 
+            mat-icon-button 
+            matSuffix 
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'" 
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        
+        </mat-form-field>
+    
+        <button
+            mat-mdc-form-field-type-mat-input     
+            mat-raised-button 
+            color="primary"
+            type="submit"
+            class="registerFormFontSize">
+            Увійти
+        </button>
+    </form>
+    </mat-card-content>
+    <mat-card-subtitle>Не маєете аккаунту ? <a routerLink="/sign-up">Зареєструватися</a></mat-card-subtitle>
+</mat-card>
+  

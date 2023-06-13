@@ -16,6 +16,8 @@ import { HomePageComponent } from './layouts/home-page/home-page.component';
 import { ImgLazyLoadComponent } from './shared/components/img-lazy-load/img-lazy-load.component';
 import { SnackBarComponent } from './shared/components/snack-bar/snack-bar.component';
 import { ProgressBarComponent } from './shared/components/progress-bar/progress-bar.component';
+import { SignUpPageComponent } from './layouts/sign-up-page/sign-up-page.component';
+import { LogInPageComponent } from './layouts/log-in-page/log-in-page.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { ProgressBarComponent } from './shared/components/progress-bar/progress-
     ImgLazyLoadComponent,
     SnackBarComponent,
     ProgressBarComponent,
+    SignUpPageComponent,
+    LogInPageComponent,
   ],
   imports: [
     BrowserModule,

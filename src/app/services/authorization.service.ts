@@ -6,8 +6,6 @@ import { ICredentials } from '../shared/models/user.model';
 import { ICandidat } from '../shared/models/user.model';
 import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
-// import { AppComponent } from '../app.component';
-
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +28,7 @@ export class AuthorizationService {
         // Perform the redirect to the home page here
       }),
       catchError((error: any) => {
+        console.log(error)
         // If there is an error, handle it and show a snack bar with the error message
         const errorMessage = error?.message || 'An unknown error occurred';
         // this.appComponent.openSnackbar(errorMessage, true);
