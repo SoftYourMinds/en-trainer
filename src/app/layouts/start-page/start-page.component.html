@@ -1,1 +1,14 @@
-<p>start-page works!</p>
+<app-header></app-header>
+
+<div #parallax class="parallax" (mousemove)="onMouseMove($event)">
+    <div class="parallax__body">
+        <div class="parallax_images">
+            <div class="clouds" #clouds></div>
+            <div class="ground" #ground></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <app-footer></app-footer> -->
