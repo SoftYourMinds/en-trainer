@@ -9,7 +9,6 @@ import { of } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 
-
 export interface IToken {
   token: string;
 }
@@ -68,6 +67,4 @@ export class AuthorizationService {
     }
   }
 
-
-  
 }

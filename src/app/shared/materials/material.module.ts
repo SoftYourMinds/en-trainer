@@ -23,6 +23,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatMenuModule} from '@angular/material/menu';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -51,7 +52,7 @@ const MaterialComponents = [
   MatDividerModule,
   MatCardModule,
   MatIconModule,
-  
+  MatMenuModule,
 ];
 
 @NgModule({

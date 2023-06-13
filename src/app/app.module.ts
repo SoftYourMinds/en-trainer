@@ -19,6 +19,7 @@ import { ProgressBarComponent } from './shared/components/progress-bar/progress-
 import { SignUpPageComponent } from './layouts/sign-up-page/sign-up-page.component';
 import { LogInPageComponent } from './layouts/log-in-page/log-in-page.component';
 import { JwtModule,JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { EmailEditPipe } from './shared/pipes/email-edit.pipe';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { JwtModule,JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     ProgressBarComponent,
     SignUpPageComponent,
     LogInPageComponent,
+    EmailEditPipe,
   ],
 
   imports: [

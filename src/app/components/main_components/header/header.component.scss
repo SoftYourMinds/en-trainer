@@ -36,6 +36,12 @@ mat-toolbar {
                 line-height: 1;
             }
         }
+
+        .user-info {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
     }
 }
 
