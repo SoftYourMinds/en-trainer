@@ -1,0 +1,20 @@
+<mat-toolbar>
+    <mat-toolbar-row class="header">
+        <a class="logo">
+            <img src="assets/images/logo.png" alt="logo">
+            <span>
+                EN-TRAINER
+            </span>
+        </a>
+        <ng-container *ngIf="isLogged; else elseTemplate">
+            <button 
+                mat-flat-button
+                color="primary">
+                Авторизація
+            </button>
+        </ng-container>
+        <ng-template #elseTemplate>
+            {{email}}
+        </ng-template>
+    </mat-toolbar-row>
+</mat-toolbar>

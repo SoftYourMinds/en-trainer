@@ -1,0 +1,80 @@
+
+<div *ngIf="this.validator.checkLoadingData()" class="loader">
+    <mat-spinner></mat-spinner>
+</div>
+
+<mat-card class="register">
+    <mat-card-title class="register__title">
+    <h1>{{formTitle}}</h1>
+    </mat-card-title>
+    <mat-card-content class="register__content">
+        <form [formGroup]="registrationForm" 
+                (ngSubmit)="onRegistration()" 
+                class="register__form">
+            <div class="row"
+                [ngClass]="{'spotForMatError' : addSpotForMatError()}">
+                <mat-form-field>
+                <mat-label>Ім'я</mat-label>
+                <input 
+                    matInput 
+                    formControlName="name"
+                    class="matHeight">
+                    <mat-error >
+                    {{ this.validator.getValidationErrorMessage('name') }}
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field>
+                <mat-label>Прізвище</mat-label>
+                <input 
+                    matInput
+                    formControlName="surname"  
+                    class="matHeight">
+                <mat-error> 
+                    {{ this.validator.getValidationErrorMessage('surname') }}
+                </mat-error>
+                </mat-form-field>
+                
+            </div>
+            <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input 
+                matInput 
+                placeholder="en_trainer@gmail.com"
+                formControlName="email"
+                class="matHeight">
+            <mat-error>{{ this.validator.getValidationErrorMessage('email') }} </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+            <mat-label>Пароль</mat-label>
+            <input 
+                matInput [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+                class="matHeight">
+            <button 
+                mat-icon-button 
+                matSuffix 
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'" 
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error >
+                {{ this.validator.getValidationErrorMessage('password') }}
+            </mat-error>
+            </mat-form-field>
+                    
+            <button
+            mat-mdc-form-field-type-mat-input     
+            mat-raised-button 
+            color="primary"
+            type="submit"
+            class="registerFormFontSize">
+                Зареєструватися
+            </button>
+        </form>
+    </mat-card-content>
+    <mat-card-subtitle>Вже маєте аккаунт ? <a routerLink="/auth">Увійти</a></mat-card-subtitle>
+</mat-card>
+  
