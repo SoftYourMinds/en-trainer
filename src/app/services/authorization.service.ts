@@ -6,6 +6,9 @@ import { ICredentials, IUser } from '../shared/models/user.model';
 import { ICandidat } from '../shared/models/user.model';
 import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+
 
 export interface IToken {
   token: string;
@@ -18,7 +21,8 @@ export class AuthorizationService {
   public LoggInSubject = new BehaviorSubject<boolean>(false)
   isLoggedIn$ = this.LoggInSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private jwtHelper: JwtHelperService) {
     if(localStorage.getItem('token')) this.autorize();
   }
 
@@ -49,13 +53,20 @@ export class AuthorizationService {
   }
 
 
-  logout(){
+  logout() {
+    localStorage.removeItem('token')
     this.unutorize();
   }
 
-  // getUser():IUser {
-  //   return 
-  // }
+  getUser():IUser {
+    const token:string = localStorage.getItem('token') || '';
+    const decoded:any = this.jwtHelper.decodeToken(token);
+    return {
+      _id: decoded?._id,
+      email: decoded?.email,
+      roles: decoded?.roles, 
+    }
+  }
 
 
   

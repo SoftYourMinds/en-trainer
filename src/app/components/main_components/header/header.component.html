@@ -6,7 +6,7 @@
                 EN-TRAINER
             </span>
         </a>
-        <ng-container *ngIf="isLogged; else elseTemplate">
+        <ng-container *ngIf="!isLogged; else elseTemplate">
             <button 
                 routerLink="/sign-up"
                 mat-flat-button
@@ -15,7 +15,7 @@
             </button>
         </ng-container>
         <ng-template #elseTemplate>
-            {{email}}
+            {{user.email}}
         </ng-template>
     </mat-toolbar-row>
 </mat-toolbar>

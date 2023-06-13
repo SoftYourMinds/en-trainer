@@ -18,6 +18,7 @@ import { SnackBarComponent } from './shared/components/snack-bar/snack-bar.compo
 import { ProgressBarComponent } from './shared/components/progress-bar/progress-bar.component';
 import { SignUpPageComponent } from './layouts/sign-up-page/sign-up-page.component';
 import { LogInPageComponent } from './layouts/log-in-page/log-in-page.component';
+import { JwtModule,JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LogInPageComponent } from './layouts/log-in-page/log-in-page.component'
     SignUpPageComponent,
     LogInPageComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,8 +46,13 @@ import { LogInPageComponent } from './layouts/log-in-page/log-in-page.component'
     ReactiveFormsModule,
     CommonModule,
   ],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+
+  providers: [
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, 
+  ],
 
   bootstrap: [AppComponent]
 })

@@ -7,7 +7,7 @@ import { ProgressBarService } from './progress-bar.service';
   styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit {
-  isLoading = true;
+  isLoading = false;
 
   constructor(private ProgressBarService: ProgressBarService) {
   }
