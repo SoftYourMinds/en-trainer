@@ -7,5 +7,5 @@ import { SERVER_URL } from 'config';
   styleUrls: ['./log-in-page.component.scss']
 })
 export class LogInPageComponent {
-  loginWallper = `${SERVER_URL}/data/images/tample.jpg`
+  loginWallper = `${SERVER_URL}/data/images/sunset_gate.jpg`
 }
