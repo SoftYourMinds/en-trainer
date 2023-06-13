@@ -4,10 +4,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validator } from 'src/app/helpers/validator';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { openSnackbar } from 'src/app/shared/components/snack-bar/openSnackBar';
 import { ICandidat } from 'src/app/shared/models/user.model';
 import { tap } from 'rxjs/operators';
 import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
+import { ProgressBarService } from 'src/app/shared/components/progress-bar/progress-bar.service';
 
 @Component({
   selector: 'app-registration',
@@ -23,8 +23,8 @@ export class RegistrationComponent implements OnInit {
 
   
     constructor(
-      public snackBar: MatSnackBar,
       private SnackBar: SnackBarService,
+      private ProgressBar: ProgressBarService,
       private authorizationSerice: AuthorizationService,
       private validationDataService: ValidationService,
       private fb: FormBuilder) {
@@ -49,25 +49,22 @@ export class RegistrationComponent implements OnInit {
         return;
       }
       const candidat: ICandidat = this.registrationForm.value
-      // this.registrationInProgress = true; // Show the progress bar
+      this.ProgressBar.showProgressBar();
       this.registrationForm.disable(); // Disable the form
   
       this.authorizationSerice.registration(candidat).pipe(
         tap(() => {
           this.SnackBar.openSnackbar("Реєстрація успішна", true);
-          this.registrationForm.reset(); // Reset the form
-           // Clear the error states of form controls
-          
+          this.registrationForm.reset();
           this.clearErrorStates();
           this.registrationForm.enable()
-          // this.registrationInProgress = false; // Hide the progress bar
-          // Handle successful registration
+          this.ProgressBar.hideProgressBar()
         })
       ).subscribe({
         error: (error) => {
           this.SnackBar.openSnackbar(error.error.message, false);
           this.registrationForm.enable(); // Enable the form
-          // this.registrationInProgress = false; // Hide the progress bar
+          this.ProgressBar.hideProgressBar()
           // Handle registration error
         }
       });

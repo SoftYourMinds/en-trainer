@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './layouts/home-page/home-page.component';
 import { ImgLazyLoadComponent } from './shared/components/img-lazy-load/img-lazy-load.component';
 import { SnackBarComponent } from './shared/components/snack-bar/snack-bar.component';
+import { ProgressBarComponent } from './shared/components/progress-bar/progress-bar.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { SnackBarComponent } from './shared/components/snack-bar/snack-bar.compo
     HomePageComponent,
     ImgLazyLoadComponent,
     SnackBarComponent,
+    ProgressBarComponent,
   ],
   imports: [
     BrowserModule,
