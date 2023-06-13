@@ -1,11 +1,12 @@
 <mat-toolbar>
     <mat-toolbar-row class="header">
-        <a class="logo">
+        <div class="logo" 
+            routerLink="/start">
             <img src="assets/images/logo.png" alt="logo">
             <span>
                 EN-TRAINER
             </span>
-        </a>
+        </div>
         <ng-container *ngIf="!isLogged; else elseTemplate">
             <button 
                 routerLink="/sign-up"
@@ -14,30 +15,8 @@
                 Авторизація
             </button>
         </ng-container>
-        
         <ng-template #elseTemplate>
-            <div class="user-info">
-
-                <span>{{user.email | emailEdit}}</span>
-                <button 
-                    mat-icon-button 
-                    [matMenuTriggerFor]="userMenu">
-                    <mat-icon >arrow_drop_down</mat-icon>
-                </button>
-                <mat-menu 
-                    #userMenu="matMenu" 
-                    xPosition="before">
-                    <button 
-
-                        mat-menu-item
-                        (click)="onLogout()">
-                        Вийти 
-                        <mat-icon>exit_to_app</mat-icon>
-                    </button>
-                </mat-menu>
-            
-            </div>
-            
+            <app-header-profile [email]="user.email"></app-header-profile>
         </ng-template>
     </mat-toolbar-row>
 </mat-toolbar>

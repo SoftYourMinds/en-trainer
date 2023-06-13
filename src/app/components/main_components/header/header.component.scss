@@ -22,6 +22,7 @@ mat-toolbar {
             justify-content: center;
             align-items: center;
             gap: 1em;
+            cursor: pointer;
 
             img {
                 width: 50px;
@@ -35,12 +36,6 @@ mat-toolbar {
                 font-weight: 400;
                 line-height: 1;
             }
-        }
-
-        .user-info {
-            display: flex;
-            justify-content: end;
-            align-items: center;
         }
     }
 }

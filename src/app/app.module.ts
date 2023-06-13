@@ -20,6 +20,8 @@ import { SignUpPageComponent } from './layouts/sign-up-page/sign-up-page.compone
 import { LogInPageComponent } from './layouts/log-in-page/log-in-page.component';
 import { JwtModule,JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { EmailEditPipe } from './shared/pipes/email-edit.pipe';
+import { StartPageComponent } from './layouts/start-page/start-page.component';
+import { HeaderProfileComponent } from './components/user_components/header-profile/header-profile.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { EmailEditPipe } from './shared/pipes/email-edit.pipe';
     SignUpPageComponent,
     LogInPageComponent,
     EmailEditPipe,
+    StartPageComponent,
+    HeaderProfileComponent,
   ],
 
   imports: [

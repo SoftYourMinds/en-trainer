@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { IUser } from 'src/app/shared/models/user.model';
 
@@ -11,7 +12,9 @@ export class HeaderComponent implements OnInit {
   isLogged: boolean = false;
   user: IUser;
 
-  constructor(private AuthorizationService: AuthorizationService) {
+  constructor(
+    private AuthorizationService: AuthorizationService,
+    private router: Router) {
 
   }
 
@@ -23,7 +26,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    
+    this.AuthorizationService.logout()
+    this.router.navigate(['/start'])
   }
 }
 

@@ -1,0 +1,14 @@
+.user-info {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    .trainer-btn {
+        translate: 0px 1.3px;
+    }
+}
+
+.divider {
+    margin: 0px 0.5em;
+    height: 1rem;
+}
