@@ -1,0 +1,37 @@
+@import '../../../stylesheets/panels.scss';
+
+
+mat-card-title {
+    position: relative;
+}
+
+.repeat-settenings-icon {
+    position: absolute;
+    right: 24px;
+    top: 20px;
+}
+
+mat-card-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.divide {
+    flex: 1 1 auto
+}
+
+.words-count {
+    line-height: 1;
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+}
+
+mat-card-actions {
+    flex: 1;
+}
+
+button {
+    flex: 1;
+}

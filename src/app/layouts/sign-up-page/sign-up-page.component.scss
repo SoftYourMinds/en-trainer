@@ -9,12 +9,21 @@ app-header {
 }
 
 .container {
-    position: relative;
     display: flex;
-    flex: 1 auto;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    app-registration {
+        margin: 0 auto;
+    }
+
+}
+
+.wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
     z-index: 2;

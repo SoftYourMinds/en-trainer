@@ -22,7 +22,11 @@ import { JwtModule,JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { EmailEditPipe } from './shared/pipes/email-edit.pipe';
 import { StartPageComponent } from './layouts/start-page/start-page.component';
 import { HeaderProfileComponent } from './components/user_components/header-profile/header-profile.component';
-
+import { CollectionControlPanelComponent } from './components/user_components/collection-panel/collection-control-panel.component';
+import { RepeatPanelComponent } from './components/user_components/repeat-panel/repeat-panel.component';
+import { LearnPanelComponent } from './components/user_components/learn-panel/learn-panel.component';
+import { AchivmentsPanelComponent } from './components/user_components/achivments-panel/achivments-panel.component';
+import { AddCollectionCardComponent } from './components/user_components/collection-crud/add-collection-card/add-collection-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,11 @@ import { HeaderProfileComponent } from './components/user_components/header-prof
     EmailEditPipe,
     StartPageComponent,
     HeaderProfileComponent,
+    CollectionControlPanelComponent,
+    RepeatPanelComponent,
+    LearnPanelComponent,
+    AchivmentsPanelComponent,
+    AddCollectionCardComponent,
   ],
 
   imports: [

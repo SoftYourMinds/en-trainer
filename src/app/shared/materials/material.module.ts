@@ -24,6 +24,8 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatRippleModule } from '@angular/material/core';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -53,6 +55,8 @@ const MaterialComponents = [
   MatCardModule,
   MatIconModule,
   MatMenuModule,
+  MatButtonToggleModule,
+  MatRippleModule,
 ];
 
 @NgModule({

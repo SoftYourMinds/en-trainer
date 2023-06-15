@@ -1,14 +1,35 @@
-<app-header></app-header>
-
-<div #parallax class="parallax" (mousemove)="onMouseMove($event)">
-    <div class="parallax__body">
-        <div class="parallax_images">
-            <div class="clouds" #clouds></div>
-            <div class="ground" #ground></div>
+<div [ngStyle]="{'display': onload ? 'block' : 'none'}">
+    
+    
+    <div #parallax class="parallax" (mousemove)="onMouseMove($event)">
+        <div class="parallax__body">
+            <div class="parallax_images">
+                <div class="clouds" #clouds></div>
+                <div class="ground" #ground></div>
+            </div>
         </div>
+        
+        <div class="content">
+            <div class="container">
+                <div class="slogan">
+                    <h1>Tвій помічник у вивченні слів</h1>
+                    <p>Шукай слова, створюй колекції слів та швидко запам'ятовуй велику кількість слів за допомогою тренажера</p>
+                    <div class="actions">
+                        <button mat-raised-button color="primary"
+                        routerLink="/log-in">ПОЧАТИ</button>
+                        <button mat-stroked-button color="primary"
+                        routerLink="/home">СПРОБУВАТИ</button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+            
+      
     </div>
-</div>
+    
+ 
 
+</div>
 
 
 <!-- <app-footer></app-footer> -->

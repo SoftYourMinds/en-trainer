@@ -21,7 +21,7 @@ export class ImgLazyLoadComponent {
 
   getBackgroundStyle(): any {
     return {
-      'background': this.empty ? `url(${this.empty}) center center / cover no-repeat` : ''
+      'background': this.empty ? `url(${this.empty}) center/cover no-repeat` : ''
     };
   }
 }

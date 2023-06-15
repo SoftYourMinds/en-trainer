@@ -2,7 +2,8 @@ import {
   Component, 
   ElementRef,
   OnInit,
-  ViewChild 
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 
 @Component({
@@ -10,10 +11,12 @@ import {
   templateUrl: './start-page.component.html',
   styleUrls: ['./start-page.component.scss']
 })
-export class StartPageComponent implements OnInit {
+export class StartPageComponent implements OnInit, AfterViewInit {
   @ViewChild('clouds', { static: true }) clouds: ElementRef;
   @ViewChild('ground', { static: true }) ground: ElementRef;
   @ViewChild('parallax', {static: true }) parallax: ElementRef;
+
+  onload = false;
 
   constructor() {}
   
@@ -21,6 +24,9 @@ export class StartPageComponent implements OnInit {
     this.setMouseParallaxStyle()
   }
 
+  ngAfterViewInit(): void {
+    this.onload = true;
+  }
   //coef
   forClouds: number = 30
   forGround: number = 10;

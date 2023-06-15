@@ -1,18 +1,17 @@
 
-:host {
+.lazy-image {
     position: absolute;
     width: 100%;
     height: 100%;
-}
+    overflow: hidden;
 
-.lazy-image {
-    width: 100%;
-    height: 100%;
 	filter: blur(3px); /* blur the lowres image */
     img {
         width: 100%;
         height: 100%;
         z-index: 3;
+        object-fit: cover;
+        
     }
 }
 

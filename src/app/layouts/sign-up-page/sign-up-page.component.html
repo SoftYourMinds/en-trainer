@@ -1,6 +1,8 @@
-<app-header></app-header>
+<div class="wrapper">
+    <app-img-lazy-load [img]="registerWallper"></app-img-lazy-load>
     <div class="container">
-        <app-img-lazy-load [img]="registerWallper"></app-img-lazy-load>
-        <app-registration style="z-index: 3;"></app-registration>
+        <app-header></app-header>
+        <app-registration></app-registration>
+        <app-footer></app-footer>    
     </div>
-<app-footer></app-footer>
+</div>
