@@ -1,43 +1,30 @@
 
 <mat-card>
+
     <mat-card-content>
 
-        <h1><mat-icon>folder</mat-icon>Колекції</h1>
+        <h1>
+            <mat-icon>folder_open</mat-icon>
+            Колекції
+        </h1>
 
-        <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
-            <mat-button-toggle value="grid">
+        <mat-button-toggle-group 
+            name="collectionsStyle" 
+            aria-label="Collection Style"
+            (change)="onToggleChange($event)">
+        
+            <mat-button-toggle [checked]="true" value="grid">
                 <mat-icon>view_module</mat-icon>
             </mat-button-toggle>
-            <mat-button-toggle value="line">
+        
+            <mat-button-toggle value="list">
                 <mat-icon>menu</mat-icon>
             </mat-button-toggle>
+        
         </mat-button-toggle-group>
 
     </mat-card-content>
+
 </mat-card>
 
 
-<ul class="card-list">
-	<app-add-collection-card></app-add-collection-card>
-    <li class="card" *ngFor="let item of collections">
-        <div class="done">
-            <div class="done-filter"></div>
-            <mat-icon>done</mat-icon>
-        </div>
-        
-        <a class="card-image">
-            <app-img-lazy-load [img]="item.currentImage"></app-img-lazy-load>
-        </a>
-        <a class="card-description">
-            <h2>Psychopomp</h2>
-            <p>слів 10</p>
-            <button 
-                mat-icon-button
-                class="edit-btn">
-                <mat-icon>edit</mat-icon>
-            </button>
-        </a>
-       
-    </li>
-
-</ul>

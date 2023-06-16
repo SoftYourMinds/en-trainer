@@ -11,7 +11,7 @@ import { LoginComponent } from './components/main_components/login/login.compone
 import { RegistrationComponent } from './components/main_components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/materials/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './layouts/home-page/home-page.component';
 import { ImgLazyLoadComponent } from './shared/components/img-lazy-load/img-lazy-load.component';
 import { SnackBarComponent } from './shared/components/snack-bar/snack-bar.component';
@@ -27,6 +27,11 @@ import { RepeatPanelComponent } from './components/user_components/repeat-panel/
 import { LearnPanelComponent } from './components/user_components/learn-panel/learn-panel.component';
 import { AchivmentsPanelComponent } from './components/user_components/achivments-panel/achivments-panel.component';
 import { AddCollectionCardComponent } from './components/user_components/collection-crud/add-collection-card/add-collection-card.component';
+import { CollectionsViewComponent } from './components/user_components/collections-view/collections-view.component';
+import { CollectionComponent } from './components/user_components/collection/collection.component';
+import { CreateCollectionDialogComponent } from './components/user_components/collection-crud/create-collection-dialog/create-collection-dialog.component';
+import { AuthorizationInterceptor } from './helpers/authorization.interceptor';
+import { AuthErrorInterceptor } from './helpers/auth-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,9 @@ import { AddCollectionCardComponent } from './components/user_components/collect
     LearnPanelComponent,
     AchivmentsPanelComponent,
     AddCollectionCardComponent,
+    CollectionsViewComponent,
+    CollectionComponent,
+    CreateCollectionDialogComponent,
   ],
 
   imports: [
@@ -67,6 +75,8 @@ import { AddCollectionCardComponent } from './components/user_components/collect
   providers: [
     JwtHelperService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true}
   ],
 
   bootstrap: [AppComponent]

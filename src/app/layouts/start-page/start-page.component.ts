@@ -16,7 +16,7 @@ export class StartPageComponent implements OnInit, AfterViewInit {
   @ViewChild('ground', { static: true }) ground: ElementRef;
   @ViewChild('parallax', {static: true }) parallax: ElementRef;
 
-  onload = false;
+  onload = true;
 
   constructor() {}
   
@@ -25,11 +25,11 @@ export class StartPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.onload = true;
+
   }
   //coef
-  forClouds: number = 30
-  forGround: number = 10;
+  forClouds: number = 10
+  forGround: number = 30;
   
   speed: number = 0.05;
   

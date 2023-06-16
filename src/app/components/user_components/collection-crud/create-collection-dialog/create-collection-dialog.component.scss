@@ -1,0 +1,12 @@
+mat-dialog {
+    width: 40rem;
+    height: 35rem;
+}
+
+mat-dialog-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

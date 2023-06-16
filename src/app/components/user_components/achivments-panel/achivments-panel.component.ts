@@ -10,7 +10,7 @@ export interface IProgressRateItem {
   styleUrls: ['./achivments-panel.component.scss']
 })
 export class AchivmentsPanelComponent implements OnInit {
-  lernedWordsForDayCount: number = 10;
+  lernedWordsForDayCount: number =  20;
   learnedWordsForAllTime: number = 100;
 
   progressItems: IProgressRateItem[] = new Array(10); 

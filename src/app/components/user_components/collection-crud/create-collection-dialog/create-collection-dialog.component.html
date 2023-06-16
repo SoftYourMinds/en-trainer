@@ -1,0 +1,20 @@
+<mat-dialog>
+    <mat-dialog-header>
+        Створення нової колекції
+    </mat-dialog-header>
+
+    <mat-dialog-content>
+        <!-- slider -->
+        <mat-form-field>
+            <input mat-input value="" placeholder="Назва колекції">
+        </mat-form-field>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions>
+
+        <button mat-stroked-button (click)="onNoClick()">Скасувати</button>
+        <button mat-flat-button color="primary">Створити</button>
+
+    </mat-dialog-actions>    
+
+</mat-dialog>

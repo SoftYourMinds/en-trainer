@@ -60,10 +60,11 @@ export class AuthorizationService {
   getUser():IUser {
     const token:string = localStorage.getItem('token') || '';
     const decoded:any = this.jwtHelper.decodeToken(token);
+
     return {
-      _id: decoded?._id,
+      _id: decoded?.id,
       email: decoded?.email,
-      roles: decoded?.roles, 
+      roles: decoded?.role, 
     }
   }
 
