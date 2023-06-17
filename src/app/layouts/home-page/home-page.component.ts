@@ -19,13 +19,10 @@ export class HomePageComponent implements OnInit {
     private CollectionService: CollectionService,
     private snackBarService: SnackBarService,
   ){ 
-    
   } 
   
   ngOnInit(): void {
-      
-    this.parent_id = "null"
+    this.parent_id = "null";
   }
-  
 
 }

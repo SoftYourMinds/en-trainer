@@ -12,7 +12,6 @@ export class CollectionService {
   public collections$ = this.CollectionsSubject.asObservable();
 
   constructor(private http: HttpClient) { 
-
   }
 
   ressetCollections(collections: ICollection[]) {

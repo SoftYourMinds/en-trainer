@@ -1,6 +1,8 @@
+<mat-progress-bar *ngIf="isLoading"></mat-progress-bar> 
 <h1 mat-dialog-title>
     Створення колекції    
 </h1>
+
 <mat-dialog-content>
     <app-slider (currentSlideChanged)="currentSlideChanged($event)"></app-slider>
   <mat-form-field style="margin-bottom: -1.25em;">
@@ -10,7 +12,6 @@
     <mat-error *ngIf="collectionName.invalid">Обов'язкове поле</mat-error>
   </mat-form-field>
 </mat-dialog-content>
-
 
 <mat-dialog-actions align="end">
     <button mat-stroked-button (click)="onNoClick()">Скасувати</button>

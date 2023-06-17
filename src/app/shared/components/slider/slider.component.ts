@@ -13,6 +13,7 @@ export class SliderComponent implements OnInit {
   
   currentSlideIndex: number = 0;
   disabled: boolean = false;
+  isInProcess: boolean = false;
 
   constructor(
     private SliderService: SliderService,
@@ -40,24 +41,39 @@ export class SliderComponent implements OnInit {
   }
 
   onImageChanged(imageUrl: string) {
-    // Handle the changed image URL here
-    console.log('Current Image:', imageUrl);
   }
 
   next() {
+    this.isInProcess = true;
+    let img = new Image();
+
     if (this.currentSlideIndex < this.images.length - 1) {
       this.currentSlideIndex++;
     } else {
       this.currentSlideIndex = 0;
     }
+
+    img.src = this.images[this.currentSlideIndex] 
+    img.onload = () => {
+      this.isInProcess = false;
+    }
     this.currentSlideChanged.emit(this.images[this.currentSlideIndex]);
   }
 
   prev() {
+    this.isInProcess = true;
+    let img = new Image();
+
     if (this.currentSlideIndex > 0) {
       this.currentSlideIndex--;
     } else {
       this.currentSlideIndex = this.images.length - 1;
+    }
+    this.currentSlideChanged.emit(this.images[this.currentSlideIndex]);
+  
+    img.src = this.images[this.currentSlideIndex] 
+    img.onload = () => {
+      this.isInProcess = false;
     }
     this.currentSlideChanged.emit(this.images[this.currentSlideIndex]);
   }
