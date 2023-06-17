@@ -15,16 +15,15 @@ export class CollectionService {
 
   }
 
-  setCollections(newCollections: ICollection[]) {
-    const collections = this.CollectionsSubject.getValue();
-    this.CollectionsSubject.next([...collections, ...newCollections]);
+  ressetCollections(collections: ICollection[]) {
+    this.CollectionsSubject.next(collections);
   }
 
   createCollection(collection: ICollection): Observable<ICollection> {
     return this.http.post<ICollection>(`${BASE_URL}/collection/create/`, collection);
   }
   
-  getCollectionsByParentId(parent_id: string): Observable<ICollection[]> {
+  getCollectionsByParentId(parent_id: string | null): Observable<ICollection[]> {
     return this.http.get<ICollection[]>(`${BASE_URL}/collection/parent/${parent_id}`);
   }
 
@@ -40,7 +39,5 @@ export class CollectionService {
   getNumberOfAllCollections():Observable<number> {
     return this.http.get<number>(`${BASE_URL}/collections/count/`);
   }
-
-
 
 }

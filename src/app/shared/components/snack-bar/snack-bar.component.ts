@@ -12,15 +12,19 @@ export interface ISnackBarData {
   styleUrls: ['./snack-bar.component.scss']
 })
 export class SnackBarComponent {
-  
+  message: string;
+  action: boolean;
+
   constructor(
     public snackBarRef: MatSnackBarRef<SnackBarComponent>,
     @Inject(MAT_SNACK_BAR_DATA) public snackBarData: ISnackBarData 
   ){
+    this.message = snackBarData.message;
+    this.action = snackBarData.action;    
   }
 
   onClose() {
-    this.snackBarRef.dismissWithAction;
+    this.snackBarRef.dismissWithAction()
   }
 
 }

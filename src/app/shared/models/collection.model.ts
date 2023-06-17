@@ -1,5 +1,6 @@
 export interface ICollection {
-    user: string,
+    user_id: string,
+    parent_id: string | null,
     name: string,
     currentImage: string,
     images: string[],

@@ -231,11 +231,11 @@
             align-items: center;
         }
         .create-collection {
-            height: 100% !important;
-            width: 2.4rem !important;
-            
+            margin-right: calc(24px + 48px);
+
             mat-icon {
-                font-size: 3em !important;
+                font-size: 4em !important;
+                
             }
         }
 

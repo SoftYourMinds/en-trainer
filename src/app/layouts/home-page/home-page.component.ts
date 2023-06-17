@@ -11,26 +11,20 @@ import { ICollection } from 'src/app/shared/models/collection.model';
 })
 export class HomePageComponent implements OnInit {
   collections: ICollection[]
+  parent_id: string;
 
 
   constructor(
     private AuthorizationService: AuthorizationService,
     private CollectionService: CollectionService,
     private snackBarService: SnackBarService,
-  ){ } 
+  ){ 
+    
+  } 
   
   ngOnInit(): void {
-    
-
-    this.CollectionService.getCollectionsByParentId('null').subscribe({
-      next: (result: ICollection[]) => {
-        this.CollectionService.setCollections(result);
-        this.collections = result;
-      },
-      error: (error) => {
-        this.snackBarService.openSnackbar(error.error.meassage, true);
-      }
-    })
+      
+    this.parent_id = "null"
   }
   
 

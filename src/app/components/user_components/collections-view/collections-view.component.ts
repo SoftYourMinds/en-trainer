@@ -1,5 +1,7 @@
 import { Component,ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import { CollectionService } from 'src/app/services/collection.service';
+import { ProgressBarService } from 'src/app/shared/components/progress-bar/progress-bar.service';
+import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
 import { ICollection } from 'src/app/shared/models/collection.model';
 import { ViewCollectionsService } from 'src/app/shared/services/view-collections.service';
 
@@ -10,15 +12,43 @@ import { ViewCollectionsService } from 'src/app/shared/services/view-collections
 })
 export class CollectionsViewComponent implements OnInit {
   @ViewChild('collectionsBlock', {static: true}) collectionsBlock: ElementRef;
- 
   @Input() collections: ICollection[];
-  
+  @Input() parentId: string;
+
   constructor(
     public ViewCollectionsService: ViewCollectionsService,
-    public CollectionService: CollectionService
+    public CollectionService: CollectionService,
+    public ProgressBarService: ProgressBarService,
+    public SnackBarService: SnackBarService,
   ){
      
   }
+
+  ngOnInit(): void {
+    console.log(this.parentId);
+    
+    this.ProgressBarService.showProgressBar()
+
+    this.ViewCollectionsService.collectionViewStyle$.subscribe((newStyle)=> {
+      this.setCollectionsStyle(newStyle);
+    });
+    
+    this.CollectionService.getCollectionsByParentId(this.parentId).subscribe({
+      next: (result: ICollection[]) => {
+        this.CollectionService.ressetCollections(result);
+        this.ProgressBarService.hideProgressBar();
+      },
+      error: (error) => {
+        this.ProgressBarService.hideProgressBar()
+        this.SnackBarService.openSnackbar(error.error.meassage, true);
+      }
+    })
+
+    this.CollectionService.collections$.subscribe((collections) => {
+      this.collections = collections;
+    })
+  }
+  
 
   setCollectionsStyle (newStyle: string) {
     console.log(newStyle)
@@ -32,31 +62,5 @@ export class CollectionsViewComponent implements OnInit {
       collections.classList.add(newStyle);  
     }
   }
-
-  ngOnInit(): void {
-    this.ViewCollectionsService.collectionViewStyle$.subscribe((newStyle)=> {
-      this.setCollectionsStyle(newStyle);
-    });
- 
-  }
   
-  // setCollections() {
-  //    const NUM_ITEMS = 10; // Number of items in the array
-
-  //   for (let i = 0; i < NUM_ITEMS; i++) {
-  //     const item: ICollection = {
-  //       user: `${i}`,
-  //       name: `Collection ${i}`,
-  //       currentImage: this.back,
-  //       images: [
-  //         "https://images.pexels.com/photos/185933/pexels-photo-185933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  //         "https://images.pexels.com/photos/1008000/pexels-photo-1008000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  //         "https://images.pexels.com/photos/3775553/pexels-photo-3775553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  //       ],
-  //       date: new Date(),
-  //       fullLearned: i > 7 ? true : false
-  //     };
-  //     this.collections[i] = item;
-  //   }
-  // }
 }

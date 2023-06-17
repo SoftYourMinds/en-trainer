@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCollectionDialogComponent } from '../create-collection-dialog/create-collection-dialog.component';
 import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
@@ -9,6 +9,7 @@ import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.s
   styleUrls: ['./add-collection-card.component.scss']
 })
 export class AddCollectionCardComponent {
+  @Input() parent_id: string;
   numberAllCollections: number = 0; 
   
   constructor(
@@ -19,12 +20,9 @@ export class AddCollectionCardComponent {
   }
  
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreateCollectionDialogComponent)
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-      this.snackBarSerive.openSnackbar(result, true ) ;    
-    });
+    const dialogRef = this.dialog.open(CreateCollectionDialogComponent, {
+      data: this.parent_id
+    })
   }
 
 

@@ -54,17 +54,18 @@ export class RegistrationComponent implements OnInit {
   
       this.authorizationSerice.registration(candidat).pipe(
         tap(() => {
+          this.ProgressBar.hideProgressBar()
           this.SnackBar.openSnackbar("Реєстрація успішна", true);
           this.registrationForm.reset();
-          this.clearErrorStates();
           this.registrationForm.enable()
-          this.ProgressBar.hideProgressBar()
+          this.clearErrorStates();
         })
       ).subscribe({
         error: (error) => {
+          this.ProgressBar.hideProgressBar()
           this.SnackBar.openSnackbar(error.error.message, false);
           this.registrationForm.enable(); // Enable the form
-          this.ProgressBar.hideProgressBar()
+          
           // Handle registration error
         }
       });
