@@ -5,3 +5,4 @@
         [collection]="collection">
     </app-collection>
 </ul>
+<app-load-more (onPageEnd)="loadMoreCollections($event)" [loading]="isCollectionsLoadMore" [isFullLoaded]="isCollectionsFullLoad"></app-load-more>

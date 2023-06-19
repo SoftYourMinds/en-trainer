@@ -44,6 +44,7 @@ export class AuthorizationService {
   }
   
   autorize() {
+    console.log(localStorage.getItem('token'));
     this.LoggInSubject.next(true)
   }
 

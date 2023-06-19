@@ -34,6 +34,7 @@ import { AuthorizationInterceptor } from './helpers/authorization.interceptor';
 import { AuthErrorInterceptor } from './helpers/auth-error.interceptor';
 import { SliderComponent } from './shared/components/slider/slider.component';
 import { EditCollectionsDialogComponent } from './components/user_components/collection-crud/edit-collections-dialog/edit-collections-dialog.component';
+import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EditCollectionsDialogComponent } from './components/user_components/col
     CreateCollectionDialogComponent,
     SliderComponent,
     EditCollectionsDialogComponent,
+    LoadMoreComponent,
   ],
 
   imports: [

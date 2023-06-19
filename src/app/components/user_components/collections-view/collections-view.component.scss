@@ -1,6 +1,7 @@
 ::ng-deep .grid {
     display: block;
     margin: 1rem auto;
+    width: var(--container-width);
     padding: 0;
     font-size: 0;
     text-align: center;

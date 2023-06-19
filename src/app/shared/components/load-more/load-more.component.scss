@@ -1,0 +1,16 @@
+:host {
+    width: 100%;
+}
+
+.end {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: rgba(0, 0, 0, 0.625);
+}
+
+mat-spinner {
+    margin: 1rem auto;
+    scale: 0.5;
+}
