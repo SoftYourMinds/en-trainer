@@ -1,0 +1,12 @@
+<div class="lazy-image"
+    [ngStyle]="getBackgroundStyle()"
+    [ngClass]="{'is-loaded': empty }">
+    <img [src]="img" 
+        (load)="lazyLoad()"
+        [ngStyle]="{'opacity': empty ? 0 : 1}"
+        alt="lazy-load-image">
+</div>
+
+
+
+

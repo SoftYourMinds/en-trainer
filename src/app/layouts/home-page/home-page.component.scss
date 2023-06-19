@@ -1,0 +1,40 @@
+:host {
+    width: 100vh;
+    height: 100vh;
+}
+
+app-header {
+    width: 100%;
+    z-index: 100;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: var(--container-width);
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // padding: 16px;
+    z-index: 2;
+}
+
+.panels-container {
+    margin: 3em 0em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.7fr;
+    grid-template-rows: 1fr;
+    gap: 1em;
+}
+
+
+
+
+
+
+
+
+

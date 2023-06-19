@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <mat-toolbar-row class="header">
+        <div class="logo" 
+            routerLink="/start">
+            <!-- <img src="assets/images/logo.png" alt="logo"> -->
+            <img src="http://localhost:5000/data/images/torry-flag.png" alt="logo">
+            <span>
+                EN-TRAINER
+            </span>
+        </div>
+        <ng-container *ngIf="!isLogged; else elseTemplate">
+            <button 
+                routerLink="/sign-up"
+                mat-flat-button
+                color="primary">
+                Авторизація
+            </button>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <app-header-profile [email]="user.email"></app-header-profile>
+        </ng-template>
+    </mat-toolbar-row>
+</mat-toolbar>
+<app-progress-bar></app-progress-bar>

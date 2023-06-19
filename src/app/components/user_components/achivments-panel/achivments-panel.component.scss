@@ -1,0 +1,105 @@
+@import '../../../stylesheets/panels.scss';
+
+
+mat-card {
+    width: 100%;
+    height: 100%;
+}
+
+mat-card-title {
+    position: relative;
+}
+
+mat-card-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.achivement-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.progress {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.progress-rate {
+    width: 100%;
+    height: 1.23em;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+.progress-item {
+    width: 100%;
+    height: 100%;
+    background: #e6e7e7;
+}
+
+.cup {
+    width: 3em;
+    filter: contrast(0.1);
+    opacity: 0.2;
+}
+
+.cup_filled {
+    filter: contrast(1);
+    opacity: 1;
+}
+
+.filled { 
+    background: var(--primary-color);
+}
+
+.day-goal, .learned-words {
+    display: flex;
+    gap: 1em;
+}
+
+.achivments-icon {
+    width: 1rem;
+}
+
+strong {
+    font-weight: 800;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

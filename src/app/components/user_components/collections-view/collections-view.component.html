@@ -1,0 +1,8 @@
+<ul #collectionsBlock>
+	<app-add-collection-card [parent_id]="parentId"></app-add-collection-card>
+    <app-collection
+        *ngFor="let collection of collections"
+        [collection]="collection">
+    </app-collection>
+</ul>
+<app-load-more (onPageEnd)="loadMoreCollections($event)" [loading]="isCollectionsLoadMore" [isFullLoaded]="isCollectionsFullLoad"></app-load-more>

@@ -1,0 +1,35 @@
+<mat-progress-bar *ngIf="isLoading"></mat-progress-bar> 
+
+<h1 mat-dialog-title>
+    Редагування колекції   
+</h1>
+
+<mat-dialog-content>
+    <app-slider (currentSlideChanged)="currentSlideChanged($event)"></app-slider>
+  <mat-form-field style="margin-bottom: -1.25em;">
+    <mat-label>Назва колекції</mat-label>
+    
+    <input matInput [(ngModel)]="editCollection.name" (input)="onInput()" #collectionName="ngModel" required>
+    <mat-error *ngIf="collectionName.invalid">Обов'язкове поле</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-icon-button 
+        matTooltip="Видалити колекцію"
+        (click)="onDelete()"
+        color="warn">
+        <mat-icon>delete</mat-icon>
+    </button>
+    <div class="divider"></div>
+    <button mat-stroked-button (click)="onNoClick()">Скасувати</button>
+    <button 
+        [disabled]="isDisabled"
+        matTooltip="Зберегти зміни"
+        mat-flat-button 
+        color="primary"
+        (click)="onConfirm()"
+        [disabled]="collectionName.invalid">
+            Зберегти
+    </button>
+</mat-dialog-actions>

@@ -1,0 +1,18 @@
+<div class="slider">
+    <button 
+        [disabled]="disabled"
+        mat-icon-button
+        (click)="prev()">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <div class="images-conainer">
+        <mat-spinner *ngIf="isInProcess"></mat-spinner>
+        <app-img-lazy-load [img]="images[currentSlideIndex]" (imageChanged)="onImageChanged($event)"></app-img-lazy-load>
+    </div>
+    <button 
+        [disabled]="disabled"
+        mat-icon-button
+        (click)="next()">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,38 @@
+<mat-card class="repeat-component">
+    <mat-card-header>
+        <mat-card-title>
+            Вивчай 10 слів на день
+        </mat-card-title>
+        <mat-card-subtitle>Розшир свій словниковий запас</mat-card-subtitle>
+    </mat-card-header>    
+       
+    <mat-card-content class="achivement-content">
+        <div class="progress">
+            <div class="progress-rate">
+                <div class="progress-item"
+                    *ngFor="let item of progressItems"
+                    [ngClass]="{'filled': item.filled}">
+                </div>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3625/3625035.png" 
+                class="cup"
+                [ngClass]="{'cup_filled': cupFilled}">
+        </div>
+        <div class="day-goal">
+            <img
+            class="achivments-icon" 
+            src="https://ed-cdn.englishdom.com/frontend/online-trainer/bundles/aca3192785f6d18bc841.svg">
+
+            <mat-card-subtitle>
+                <span> Ціль дня: <strong>{{lernedWordsForDayCount}} / 10 </strong></span>
+            </mat-card-subtitle>   
+        </div>
+        <div class="learned-words">
+            <img class="achivments-icon"
+                src="https://ed-cdn.englishdom.com/frontend/online-trainer/bundles/64c68443e7e49ddb9cc4.svg">
+            <mat-card-subtitle>
+                Всього вивчено за весь час: <strong>{{learnedWordsForAllTime}}</strong>
+            </mat-card-subtitle>   
+        </div>
+    </mat-card-content>
+</mat-card>

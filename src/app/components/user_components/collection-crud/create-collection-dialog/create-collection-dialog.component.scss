@@ -1,0 +1,21 @@
+:host  {
+    position: relative;
+}
+
+mat-dialog-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-form-field {
+    margin-top: 1em;
+}
+
+mat-progress-bar {
+    position: absolute;
+    top: 0;
+}
+

@@ -1,0 +1,16 @@
+<span class="example-pizza-party" matSnackBarLabel>
+    {{snackBarData.message}}
+</span>
+<span
+    *ngIf="snackBarData.action"
+    matSnackBarActions>
+    <button 
+        mat-icon-button
+        matSnackBarAction
+        color="accent" 
+        (click)="onClose()">
+        <mat-icon>thumb_up_alt</mat-icon>
+    </button>
+</span>
+  
+  

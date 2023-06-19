@@ -1,0 +1,26 @@
+<div class="user-info">
+    <button 
+        mat-button 
+        color="primary"
+        class="trainer-btn"
+        routerLink="/home">
+        Тренажер
+    </button>
+    <mat-divider vertical="true" class="divider"></mat-divider>
+    <span class="user-email">{{ email | emailEdit}}</span>
+    <button 
+        mat-icon-button 
+        [matMenuTriggerFor]="userMenu">
+        <mat-icon >arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu 
+        #userMenu="matMenu" 
+        xPosition="before">
+        <button 
+            mat-menu-item
+            (click)="onLogout()">
+            Вийти 
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </mat-menu>
+</div>

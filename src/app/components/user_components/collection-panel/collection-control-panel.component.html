@@ -1,0 +1,30 @@
+
+<mat-card>
+
+    <mat-card-content>
+
+        <h1>
+            <mat-icon>folder_open</mat-icon>
+            Колекції
+        </h1>
+
+        <mat-button-toggle-group 
+            name="collectionsStyle" 
+            aria-label="Collection Style"
+            (change)="onToggleChange($event)">
+        
+            <mat-button-toggle [checked]="true" value="grid">
+                <mat-icon>view_module</mat-icon>
+            </mat-button-toggle>
+        
+            <mat-button-toggle value="list">
+                <mat-icon>menu</mat-icon>
+            </mat-button-toggle>
+        
+        </mat-button-toggle-group>
+
+    </mat-card-content>
+
+</mat-card>
+
+
