@@ -1,4 +1,4 @@
-import { Component,ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import { Component,ViewChild, ElementRef, OnInit, Input, DoCheck } from '@angular/core';
 import { CollectionService } from 'src/app/services/collection.service';
 import { ProgressBarService } from 'src/app/shared/components/progress-bar/progress-bar.service';
 import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
@@ -11,7 +11,7 @@ import { IPagerParams } from 'src/app/services/collection.service';
   templateUrl: './collections-view.component.html',
   styleUrls: ['./collections-view.component.scss']
 })
-export class CollectionsViewComponent implements OnInit {
+export class CollectionsViewComponent implements OnInit, DoCheck {
   @ViewChild('collectionsBlock', {static: true}) collectionsBlock: ElementRef;
   @Input() collections: ICollection[];
   @Input() parentId: string;
@@ -20,6 +20,8 @@ export class CollectionsViewComponent implements OnInit {
   isCollectionsLoadMore: boolean;
   isCollectionsFullLoad: boolean;
   isFirstPageInit: boolean;
+
+  oldParentId: string;
 
   constructor(
     public ViewCollectionsService: ViewCollectionsService,
@@ -34,13 +36,24 @@ export class CollectionsViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.initCollections();
+  }
+
+  ngDoCheck(): void {
+    if(this.parentId === this.oldParentId) return;
+    this.initCollections();
+  }
+  
+  initCollections() {
+    this.oldParentId = this.parentId;
     this.ProgressBarService.showProgressBar()
 
     this.ViewCollectionsService.collectionViewStyle$.subscribe((newStyle)=> {
       this.setCollectionsStyle(newStyle);
     });
     
+    console.log("init", this.parentId);
+
     this.CollectionService.getCollectionsByParentId(this.parentId).subscribe({
       next: (result: ICollection[]) => {
         this.isFirstPageInit = true;
@@ -63,7 +76,6 @@ export class CollectionsViewComponent implements OnInit {
         }
       })
   }
-  
    
   loadMoreCollections(onPageEnd: boolean) {
 

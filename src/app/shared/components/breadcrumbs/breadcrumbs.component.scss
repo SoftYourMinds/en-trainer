@@ -1,0 +1,18 @@
+:host {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
+
+.breadcrumbs, span, button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.breadcrumbs {
+  justify-content: flex-start;
+}

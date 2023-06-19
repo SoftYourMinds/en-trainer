@@ -1,0 +1,12 @@
+
+<div class="breadcrumbs">
+  
+  <a mat-button routerLink="/home">	<mat-icon>home</mat-icon> Головна</a>
+  <span *ngFor="let breadcrumb of breadcrumbs">
+    <mat-icon>navigate_next</mat-icon>
+    <a mat-button [routerLink]="breadcrumb.url">{{breadcrumb.name}}</a>
+  </span>
+  <mat-icon aria-disabled="true">navigate_next</mat-icon>
+  <button mat-button disabled>{{currentName}}</button>
+  
+</div>
