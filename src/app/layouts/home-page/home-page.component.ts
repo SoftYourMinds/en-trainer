@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { elementAt, Observable, map, of} from 'rxjs';
 import { CollectionService, IPagerParams } from 'src/app/services/collection.service';
-import { LoadMoreService } from 'src/app/shared/components/load-more/load-more.service';
 import { ICollection } from 'src/app/shared/models/collection.model';
 
 @Component({

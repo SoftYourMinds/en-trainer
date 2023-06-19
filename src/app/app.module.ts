@@ -35,6 +35,8 @@ import { AuthErrorInterceptor } from './helpers/auth-error.interceptor';
 import { SliderComponent } from './shared/components/slider/slider.component';
 import { EditCollectionsDialogComponent } from './components/user_components/collection-crud/edit-collections-dialog/edit-collections-dialog.component';
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
+import { CollectionPageComponent } from './layouts/collection-page/collection-page.component';
+import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { LoadMoreComponent } from './shared/components/load-more/load-more.compo
     SliderComponent,
     EditCollectionsDialogComponent,
     LoadMoreComponent,
+    CollectionPageComponent,
+    BreadcrumbsComponent,
   ],
 
   imports: [

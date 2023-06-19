@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="container">
+    <app-breadcrumbs [collection_id]="collectionId"></app-breadcrumbs>
+    <mat-tab-group>
+        <mat-tab label="Слова"> 
+            <p>WOrds</p>
+        </mat-tab>
+        <mat-tab label="Колекції" color="basic"> 
+            <app-collection-control-panel></app-collection-control-panel>
+            <app-collections-view [parentId]="collectionId"></app-collections-view>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<!-- <app-footer></app-footer>    -->
