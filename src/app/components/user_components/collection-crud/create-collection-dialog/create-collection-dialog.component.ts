@@ -86,7 +86,7 @@ export class CreateCollectionDialogComponent implements OnInit {
 
       error: (error) => {
         this.ProgresBarService.hideProgressBar();
-        this.SnackBarService.openSnackbar(error.error.message, false)
+        this.SnackBarService.openSnackbar(error.status, true)
       }
     })
   }

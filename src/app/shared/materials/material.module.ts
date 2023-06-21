@@ -28,7 +28,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatTabsModule} from '@angular/material/tabs';
-
+// import {MatSliderModule} from '@angular/material/slider';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -62,6 +62,7 @@ const MaterialComponents = [
   MatRippleModule,
   MatTooltipModule,
   MatTabsModule,
+  // MatSliderModule,
 ];
 
 @NgModule({

@@ -37,6 +37,11 @@ import { EditCollectionsDialogComponent } from './components/user_components/col
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
 import { CollectionPageComponent } from './layouts/collection-page/collection-page.component';
 import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
+import { SearchComponent } from './components/user_components/search/search.component';
+import { WordPanelComponent } from './components/user_components/words_components/word-panel/word-panel.component';
+import { WordsViewComponent } from './components/user_components/words_components/words-view/words-view.component';
+import { WordComponent } from './components/user_components/words_components/word/word.component';
+import { ExamplesComponent } from './components/user_components/words_components/examples/examples.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +72,11 @@ import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumb
     LoadMoreComponent,
     CollectionPageComponent,
     BreadcrumbsComponent,
+    SearchComponent,
+    WordPanelComponent,
+    WordsViewComponent,
+    WordComponent,
+    ExamplesComponent,
   ],
 
   imports: [

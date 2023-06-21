@@ -1,0 +1,173 @@
+::ng-deep .list {
+    display: block;
+    width: var(--container-width);
+    margin: 1rem auto;
+    padding: 0px 16px;
+    font-size: 0;
+    text-align: center;
+    list-style: none;
+    overflow: hidden;
+
+	app-word   {
+        
+            
+        .card {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            width: 100%;
+            min-height: 5rem;
+            margin: 1rem 0rem;
+            padding: 0px 1rem;
+            background: #ffff;
+            font-size: 1rem;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+            transition: transform 0.2s ease-in-out, box-shadow 0.1s;
+            
+            .hide {
+                display: none;
+            }
+            .expansion-panel {
+                border-top: 1px grey solid;
+                min-height: 5rem;
+                width: 100%;
+                flex: 1 1 auto;
+                z-index: 1;
+                padding: 1rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+
+            
+
+        .card-inside-cont {
+            z-index: 2;
+            padding: 1em;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+
+            .divider {
+                display: flex;
+                flex: 1 1 auto;
+                height: 100%;
+                cursor: pointer;
+            }
+
+            .card-image {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                height: 4rem;
+                width: 7rem;
+            }
+            
+            .left-side-card-cont {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                flex-direction: row;
+                gap: 1em;
+
+            }
+
+            .spinner-cont {
+                position: relative;
+                height: 2.3rem;
+                width: 2.3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    font-size: 0.3em;
+                    font-weight: 900;
+                    color: #3f51b5;
+                }
+            }
+   
+            .status, .spinner-back {
+                top: 0;
+                left: 0;
+                height: 2.3rem !important;
+                width: 2.3rem !important;
+                position: absolute;
+            }
+
+            .spinner-back {
+                z-index: 1;
+                opacity: 0.5;
+                z-index: 1;
+                filter: contrast(0.2);
+                opacity: 0.1;
+
+           }
+
+            .status {
+                z-index: 2;
+            }
+
+            .description {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 0.4em;
+            }
+
+            .card-description {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                text-decoration: none;
+                gap: 0.4em;
+            }
+            
+            .card-description > h2 {
+                font-size: 1.35rem;
+                margin: 0;
+                line-height: 1;
+            }
+            
+            .card-description > p {
+                margin: 0;
+                color: #515151;
+            }
+            
+            .edit-btn {
+                color: lightgray;
+            }
+
+                
+          
+
+                               
+        }
+    
+        .card:hover {
+            transform: translateY(-0.5rem) scale(1.0125);
+            box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+        }
+    
+    }
+   
+    }
+
+   
+    
+}
+// app-load-more {
+//     // margin: 22rem 22rem;
+// }
+	

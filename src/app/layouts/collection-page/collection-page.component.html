@@ -1,9 +1,10 @@
 <app-header></app-header>
 <div class="container">
     <app-breadcrumbs [collection_id]="collectionId"></app-breadcrumbs>
-    <mat-tab-group>
-        <mat-tab label="Слова"> 
-            <p>WOrds</p>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight>
+        <mat-tab label="Слова">
+            <app-word-panel [collection_id]="collectionId"></app-word-panel> 
+            <app-words-view [collection_id]="collectionId"></app-words-view>
         </mat-tab>
         <mat-tab label="Колекції" color="basic"> 
             <app-collection-control-panel></app-collection-control-panel>
@@ -11,4 +12,4 @@
         </mat-tab>
     </mat-tab-group>
 </div>
-<!-- <app-footer></app-footer>    -->
+<app-footer></app-footer>   

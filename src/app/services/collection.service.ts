@@ -4,6 +4,7 @@ import { ICollection } from '../shared/models/collection.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { BASE_URL } from 'config';
 import { HttpParams } from '@angular/common/http';
+import { IWord } from '../shared/models/word.model';
 
 export interface IPagerParams {
   page: number,

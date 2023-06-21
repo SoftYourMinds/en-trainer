@@ -23,6 +23,7 @@ export class LoadMoreComponent implements AfterViewInit   {
   }
 
   observeEndOfPage() {
+    console.log('endofpage')
     const options = {
       root: null,
       rootMargin: '0px',
