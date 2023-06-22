@@ -1,12 +1,30 @@
 <app-header></app-header>
 
 <div class="container">
-    <app-task-choise
-        (answer)="getAnswer($event)" 
-        *ngFor="let word of words"
-        [word]="word">
-    </app-task-choise>
+    <ng-container *ngIf="isTrainingInit">
+        
+        <div class="tests" 
+            [ngSwitch]="getCurrentWordStatus()">
+            <app-task-choise 
+                *ngSwitchCase="0"
+                (answer)="getAnswer($event)" 
+                [word]="getCurrentWord()">
+            </app-task-choise>
+            <app-listening-task
+                *ngSwitchCase="25"
+                (listeningAnswer)="getAnswer($event)" 
+                [listeningWord]="getCurrentWord()">
+            </app-listening-task>
+            <div *ngSwitchCase="25"></div>
+            <div *ngSwitchCase="50"></div>
+            <div *ngSwitchCase="75"></div>
+            <div *ngSwitchCase="null">
+                <mat-spinner></mat-spinner>
+            </div>
+        </div>
 
+    </ng-container>
+    
 </div>
 
 <app-footer></app-footer>   

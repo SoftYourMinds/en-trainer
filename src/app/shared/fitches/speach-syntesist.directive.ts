@@ -12,10 +12,13 @@ export class SpeachSyntesistDirective {
   @HostListener('click')
   onClick() {
     this.speakText();
+    console.log("derective click")
   }
 
-  @HostListener('keydown.space')
-  onKeyDown() {
+  @HostListener('document:keydown.space', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    event.preventDefault();
+    console.log("speach-derective")
     this.speakText();
   }
 

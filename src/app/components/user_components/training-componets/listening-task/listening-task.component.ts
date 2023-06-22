@@ -1,54 +1,57 @@
-import { Component,AfterViewInit, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { WordService } from 'src/app/services/word.service';
-import { SliderService } from 'src/app/shared/components/slider/slider.service';
-import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
+import { SpeachSyntesistService } from 'src/app/shared/fitches/speach-syntesist.service';
 import { IWord } from 'src/app/shared/models/word.model';
 import { shuffleArray } from 'src/app/shared/fitches/shuffleArray';
 
 @Component({
-  selector: 'app-task-choise',
-  templateUrl: './task-choise.component.html',
-  styleUrls: ['./task-choise.component.scss'],
+  selector: 'app-listening-task',
+  templateUrl: './listening-task.component.html',
+  styleUrls: ['./listening-task.component.scss']
 })
-export class TaskChoiseComponent implements OnInit {
-  @Input() word: IWord;
-  @Output() answer = new EventEmitter<boolean>()
+export class ListeningTaskComponent  implements OnInit {
+  @Input() listeningWord: IWord;
+  @Output() listeningAnswer = new EventEmitter<boolean>()
 
-  taskWords: string[]; // слова для тренування
-  afterCorrectAnswer: boolean; // доступ до функціонала після правильно відповіді користувача
-  correctAnswer:string; // правильна відповідь
-  firstAnswer: any; // перша обрана відповідь йде у відгук
-  isChoiceTaskInit: boolean; // чи ініціалюзувався компонента 
-  selectedValue: number;  // який із mat-radio-button треба щоб обрався 
+  taskWords: string[];
+  afterCorrectAnswer: boolean;
+  correctAnswer:string;
+  firstAnswer: any;
+  images: string[];
+  isListeningTaskInit: boolean;
+  selectedValue: number;
 
-  constructor(
+    constructor(
+    private SpeachSyntesist: SpeachSyntesistService,
     private WordService: WordService,
   ) {}
 
   ngOnInit(): void {
-    this.initChoiceTask()    
+      this.initListeningTask()    
   }
 
   ngDoCheck(): void {
-    if(this.correctAnswer === this.word.word) return;
-    else this.initChoiceTask();
+    if(this.correctAnswer === this.listeningWord.translations[0]) return;
+    else this.initListeningTask();
   }
 
-  initChoiceTask() {
+  initListeningTask() {
   
     this.firstAnswer = null;
-    this.isChoiceTaskInit = false;
+    this.isListeningTaskInit = false;
     this.afterCorrectAnswer = false;
     this.selectedValue = -1;
     this.taskWords = [];
+    console.log(this.listeningWord)
 
-    this.correctAnswer = this.word.word; 
+    this.correctAnswer = this.listeningWord.translations[0]; 
     this.taskWords = [this.correctAnswer];
 
-    this.WordService.getTaskChoice(this.word.collection_id, this.word._id).subscribe((res)=>{
+    this.WordService.getTaskListening(this.listeningWord.collection_id, this.listeningWord._id).subscribe((res)=>{
       this.taskWords.push(...res);
       this.taskWords = shuffleArray(this.taskWords);
-      this.isChoiceTaskInit = true;
+      this.isListeningTaskInit = true;
+      this.SpeachSyntesist.speakText(this.listeningWord.word);
       console.log(res);
     })
   }
@@ -59,15 +62,15 @@ export class TaskChoiseComponent implements OnInit {
       if(this.taskWords[event.value] === this.correctAnswer) this.firstAnswer = true;
       else this.firstAnswer = false;  
     }
-    console.log(event.value)
-    if(this.taskWords[event.value] === this.word.word) {
+    if(this.taskWords[event.value] === this.listeningWord.translations[0]) {
       this.afterCorrectAnswer = true;
     } 
+    console.log(event)
   }
 
   getBackgroundStyle(): any {
     return {
-      'background': this.word.currentImage ? `url(${this.word.currentImage}) center/cover no-repeat` : '',
+      'background': this.listeningWord.currentImage ? `url(${this.listeningWord.currentImage}) center/cover no-repeat` : '',
       'filter': !this.afterCorrectAnswer ? `blur(40px)` : 'none'
     };
   }
@@ -75,7 +78,7 @@ export class TaskChoiseComponent implements OnInit {
   // відправляю відповідь за завдання, якщо з першого разу вгадав то тру якщо ні то фолс
   emitRespond() { 
     if(!this.afterCorrectAnswer) return
-    this.answer.emit(this.firstAnswer);
+    this.listeningAnswer.emit(this.firstAnswer);
   }
 
   @HostListener('document:keydown.enter')

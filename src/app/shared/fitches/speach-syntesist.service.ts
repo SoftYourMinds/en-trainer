@@ -13,7 +13,8 @@ export class SpeachSyntesistService {
     utterance.volume = 1;
     utterance.rate = 0.8;
     utterance.pitch = 0.8;
-
+  
+    console.log('service')
     speechSynthesis.speak(utterance);
   }
 }

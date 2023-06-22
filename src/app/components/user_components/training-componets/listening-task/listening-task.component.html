@@ -1,16 +1,15 @@
-<ng-container *ngIf="isChoiceTaskInit">
+<ng-container *ngIf="isListeningTaskInit">
     <mat-card>
         <mat-card-header>
-        
             <mat-card-title>
-                <span>                
-                    {{word.translations[0]}}
-                </span>
+                <span
+                [ngStyle]="{'opacity': afterCorrectAnswer ? '1' : '0'}">
+                        {{listeningWord.word}}
+                    </span>
             </mat-card-title>
             <mat-card-subtitle>
-                <span [ngStyle]="{'opacity':'0'}">[ {{word.phonetic}} ]</span>
+                <span [ngStyle]="{'opacity': afterCorrectAnswer ? '1' : '0'}">[{{listeningWord.phonetic}}]</span>
             </mat-card-subtitle>
-        
         </mat-card-header>
 
         <mat-card-content>
@@ -20,6 +19,17 @@
                         <div class="card-image"
                             [ngStyle]="getBackgroundStyle()">
                         </div>
+                    </div>
+                        
+                    <div class="volume-cont">
+                        <button 
+                            speachSyntesist [speachText]="listeningWord.word"
+                            mat-mini-fab
+                            color="primary" 
+                            class="volume"
+                            mat-ripple>
+                            <mat-icon>volume_up</mat-icon>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -59,4 +69,5 @@
 
     </mat-card>
 </ng-container>
+
 

@@ -45,6 +45,7 @@ import { ExamplesComponent } from './components/user_components/words_components
 import { TrainingComponent } from './layouts/training/training.component';
 import { TaskChoiseComponent } from './components/user_components/training-componets/task-choise/task-choise.component';
 import { SpeachSyntesistDirective } from './shared/fitches/speach-syntesist.directive';
+import { ListeningTaskComponent } from './components/user_components/training-componets/listening-task/listening-task.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { SpeachSyntesistDirective } from './shared/fitches/speach-syntesist.dire
     TrainingComponent,
     TaskChoiseComponent,
     SpeachSyntesistDirective,
+    ListeningTaskComponent,
   ],
 
   imports: [
