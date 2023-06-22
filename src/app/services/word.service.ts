@@ -61,6 +61,19 @@ export class WordService {
     return this.http.get<IWord[]>(`${BASE_URL}/word/${collection_id}&${page}&${pageSize}`);
   }
 
+  
+  deleteWord(id: string): Observable<IWord> {
+    return this.http.delete<IWord>(`${BASE_URL}/word/delete/${id}`);
+  }
 
+  getTrainingWords(collection_id: string): Observable<IWord[]> {
+    return this.http.get<IWord[]>(`${BASE_URL}/words/training/${collection_id}`);
+  }
 
+  getTaskChoice(collection_id: string, word_id: string): Observable<string[]> {
+    return this.http.get<string[]>(`${BASE_URL}/word/task/choice/${collection_id}&${word_id}`);
+  }
+
+  
+  
 }

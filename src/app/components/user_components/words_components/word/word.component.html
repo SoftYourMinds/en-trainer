@@ -48,7 +48,11 @@
     
     <div class="expansion-panel" *ngIf="isExpansed">
         <app-examples [examples]="word.examples"></app-examples>
-        <button mat-icon-button class="delete">
+        <button
+            mat-icon-button 
+            class="delete"
+            (click)="onDeleteWord()"
+            matTooltip="Видалити слово">
             <mat-icon>delete_forever</mat-icon>
         </button>
      </div>

@@ -42,6 +42,10 @@ import { WordPanelComponent } from './components/user_components/words_component
 import { WordsViewComponent } from './components/user_components/words_components/words-view/words-view.component';
 import { WordComponent } from './components/user_components/words_components/word/word.component';
 import { ExamplesComponent } from './components/user_components/words_components/examples/examples.component';
+import { TrainingComponent } from './layouts/training/training.component';
+import { TaskChoiseComponent } from './components/user_components/training-componets/task-choise/task-choise.component';
+import { SpeachSyntesistDirective } from './shared/fitches/speach-syntesist.directive';
+
 
 @NgModule({
   declarations: [
@@ -77,6 +81,9 @@ import { ExamplesComponent } from './components/user_components/words_components
     WordsViewComponent,
     WordComponent,
     ExamplesComponent,
+    TrainingComponent,
+    TaskChoiseComponent,
+    SpeachSyntesistDirective,
   ],
 
   imports: [

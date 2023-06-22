@@ -78,13 +78,10 @@ export class WordsViewComponent {
   loadMoreWords(onPageEnd: boolean) {
 
     if (!this.isFirstWordsPageInit) return;
-    console.log("words first init")
 
     if(this.isSearchedWordExist) return
-    console.log("not exist")
 
     if (onPageEnd && this.isWordsFullLoad) return;
-    console.log("no full load")
     
     this.isWordsLoadMore = true;
         
@@ -92,10 +89,8 @@ export class WordsViewComponent {
         if (result.length > 0) {
           this.pager.page += 1;
           this.isWordsLoadMore= false;
-          console.log("words end of page")
           this.WordsService.pushWords(result);
          } else {
-          console.log('that s all')
           this.isWordsFullLoad = true;
           this.isWordsLoadMore = false;
         }

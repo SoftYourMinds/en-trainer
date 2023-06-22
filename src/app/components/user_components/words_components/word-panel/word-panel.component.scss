@@ -8,7 +8,7 @@ mat-card {
 		font-size: 1.7em;
 		display: flex;
 		justify-content: flex-start;
-		align-items: start;
+		align-items: flex-start;
 		gap: 0.2em;
 	}
     mat-card-content {
@@ -24,7 +24,7 @@ mat-card {
 		height: 3rem;
 		margin-right: 3rem;
 		width: 7rem;
-			text-transform: uppercase;
+		text-transform: uppercase;
 	
 	}
 

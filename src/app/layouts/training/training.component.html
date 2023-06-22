@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="container">
+    <app-task-choise
+        (answer)="getAnswer($event)" 
+        *ngFor="let word of words"
+        [word]="word">
+    </app-task-choise>
+
+</div>
+
+<app-footer></app-footer>   

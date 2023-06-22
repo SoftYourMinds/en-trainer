@@ -1,0 +1,26 @@
+:host {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+app-header {
+    width: 100%;
+    z-index: 100;
+}
+
+.container {
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0 auto;
+    min-width: var(--container-width);
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 2;
+}
