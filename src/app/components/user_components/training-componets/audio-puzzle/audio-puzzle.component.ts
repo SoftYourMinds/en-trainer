@@ -28,6 +28,8 @@ export class AudioPuzzleComponent implements OnInit {
   isDisabled: boolean[];
 
   indexes: number[] = []
+  indexesRepeat: number[] = []
+  usedIndexes: number[] = [];
 
 
   constructor(
@@ -44,6 +46,7 @@ export class AudioPuzzleComponent implements OnInit {
   }
 
   initAudioPuzzle() {
+    this.usedIndexes = [];
     this.indexes = [];
     this.currentLetterIndexI = 0;
     this.currentLetterIndexJ = 0;
@@ -79,9 +82,15 @@ export class AudioPuzzleComponent implements OnInit {
 
 
   check(pointedLetter: string, i: number) { 
+    if (this.usedIndexes.includes(i)) return;
+
     if(this.firstAnswer) { //якщо відповідь така яка йтиме у батьківську компоненту правильна
-      if(this.correctWordArray[this.currentLetterIndexI][this.currentLetterIndexJ] !== // то перевіряємо чи це так і на цей раз і якщо ні то вже буде відомо що завдання не правильне
-        pointedLetter) this.firstAnswer = false; // first wrong answer
+      if(this.correctWordArray[this.currentLetterIndexI][this.currentLetterIndexJ] !== 
+        pointedLetter) {
+          console.log(" after mistake ")
+          this.firstAnswer = false;
+      } // first wrong answer
+      
     }
 
     if(pointedLetter === this.correctWordArray[this.currentLetterIndexI][this.currentLetterIndexJ]) {//3 3
@@ -92,6 +101,7 @@ export class AudioPuzzleComponent implements OnInit {
           this.currentLetterIndexI+=1;
           this.currentLetterIndexJ=0;
         }
+        this.usedIndexes.push(i);
     } 
   
     let maxIndexWords = this.audioPuzzleWord.word.split(' ').length;
@@ -121,14 +131,27 @@ export class AudioPuzzleComponent implements OnInit {
      this.emitRespond();
   }
 
-  @HostListener('document:keydown', ['$event'])
-  onAnyKey(event: KeyboardEvent) {
-    let currentIndex = this.wrongWordArray.indexOf(event.key);
-    let isTyped = this.indexes.find(el => el === currentIndex);
-    if(isTyped) currentIndex = this.wrongWordArray.indexOf(event.key, isTyped+1)
-    this.check(event.key, currentIndex);
-    this.indexes.push(currentIndex);
-}
+ 
+@HostListener('document:keydown', ['$event'])
+onAnyKey(event: KeyboardEvent) {
+  let indexes: number[] = [];
+  let currentIndex = this.wrongWordArray.indexOf(event.key);
+  if(currentIndex === -1) return;
 
-}
+  while (currentIndex !== -1) {
+    indexes.push(currentIndex);
+    currentIndex = this.wrongWordArray.indexOf(event.key, currentIndex + 1);
+  }
 
+  console.log(indexes);
+  
+  let unusedIndexes = indexes.filter(index => !this.usedIndexes.includes(index));
+  if (unusedIndexes.length > 0) {
+    let indexToUse = unusedIndexes[0];
+    console.log("to use",indexToUse)
+    this.check(event.key, indexToUse);
+    // this.usedIndexes.push(indexToUse);
+  }
+  
+  }
+}
