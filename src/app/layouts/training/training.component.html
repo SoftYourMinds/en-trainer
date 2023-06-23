@@ -5,11 +5,16 @@
         
         <div class="tests" 
             [ngSwitch]="getCurrentWordStatus()">
-             <app-audio-puzzle 
+            <app-write-task
+                *ngSwitchCase="0"
+                (writeAnswer)="getAnswer($event)" 
+                [writeWord]="getCurrentWord()">
+            </app-write-task>
+            <!-- <app-audio-puzzle 
                 *ngSwitchCase="0"
                 (audioPuzzleAnswer)="getAnswer($event)" 
                 [audioPuzzleWord]="getCurrentWord()">
-            </app-audio-puzzle>
+            </app-audio-puzzle> -->
             <!-- <app-task-choise 
                 *ngSwitchCase="0"
                 (answer)="getAnswer($event)" 

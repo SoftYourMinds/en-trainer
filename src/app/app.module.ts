@@ -47,6 +47,7 @@ import { TaskChoiseComponent } from './components/user_components/training-compo
 import { SpeachSyntesistDirective } from './shared/fitches/speach-syntesist.directive';
 import { ListeningTaskComponent } from './components/user_components/training-componets/listening-task/listening-task.component';
 import { AudioPuzzleComponent } from './components/user_components/training-componets/audio-puzzle/audio-puzzle.component';
+import { WriteTaskComponent } from './components/user_components/training-componets/write-task/write-task.component';
 
 
 @NgModule({
@@ -88,6 +89,7 @@ import { AudioPuzzleComponent } from './components/user_components/training-comp
     SpeachSyntesistDirective,
     ListeningTaskComponent,
     AudioPuzzleComponent,
+    WriteTaskComponent,
   ],
 
   imports: [
