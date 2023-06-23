@@ -1,0 +1,154 @@
+:host  {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+mat-card {
+    width: 80%;
+}
+
+mat-card-header {
+    width: 50%;
+
+    mat-mdc-card-header-text {
+        width: 100%;
+    }
+    mat-card-title {
+        font-size: 1.5rem;
+        text-align: start;
+        margin-left: 3rem;
+        letter-spacing: 1px;
+        color: #3F51B5;
+    }
+}
+
+mat-card-subtitle {
+    margin-left: 3rem;
+}
+
+.image-cont {
+    position: relative;
+   
+}
+.img-boundary {
+    overflow: hidden;
+}
+
+.card-image {
+    position: relative;
+    width: 22rem;
+    height: 14rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.volume-cont {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    overflow: visible;
+    .volume {
+        translate: 0px 50%;
+        color: #3F51B5;
+        background: white;
+    }
+         
+}
+
+mat-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.preview-cont {
+    height: 16rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-task-cont {
+    margin-top: 2rem;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.audio-wrong-answers-cont {
+    margin-top: 1rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.word {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.space-key {
+    margin: 0;
+    padding: 0;
+    background-color:#ffffff00;
+    width: 2em;
+    height: 2em;
+}
+
+.letter {
+    margin: 0;
+    padding: 0;
+    background-color:#ffffff;
+    user-select: none;
+    width: 2em;
+    height: 2em;
+    font-size: 1.5em;
+    border: 2px #3F51B5 solid;
+    border-radius: 2px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        text-transform: uppercase;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<ng-container *ngIf="isAudioPuzzleInit">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                
+            </mat-card-title>
+            <mat-card-subtitle>
+
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="preview-cont">
+                <div class="image-cont">
+                    <div class="img-boundary">
+                        <div class="card-image"
+                            [ngStyle]="getBackgroundStyle()">
+                        </div>
+                    </div>
+                        
+                    <div class="volume-cont">
+                        <button 
+                            speachSyntesist [speachText]="audioPuzzleWord.word"
+                            mat-mini-fab
+                            color="primary" 
+                            class="volume"
+                            mat-ripple>
+                            <mat-icon>volume_up</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                      
+            <div class="audio-task-cont">
+                <div *ngFor="let word of tamplateWordArray; let i = index" class="word">
+                    <div class="letter"
+                        *ngFor="let letter of word; let j = index"
+                        [ngStyle]="{'color': getIsCorrect(i,j) ? '#3F51B5' : '#ffffff'}">
+                        {{letter}}
+                    </div> 
+                </div>
+            </div>
+
+            <div class="audio-wrong-answers-cont">
+                <button  mat-mini-fab  color="basic"
+                    *ngFor="let letter of wrongWordArray; let i = index"
+                    (click)="check(letter, i)"
+                    [disabled]="getIsDisabled(i)">
+                    {{letter}}
+                </button> 
+            </div>
+
+         
+        </mat-card-content>    
+
+        <mat-card-actions>
+        
+            <button 
+                (keydown.enter)="emitRespond()"
+                (click)="emitRespond()"
+                mat-flat-button
+                color="primary"
+                [disabled]="afterCorrectAnswer ? false : true">
+                Далі
+            </button>
+        
+        </mat-card-actions>
+
+    </mat-card>
+</ng-container>
+
+
