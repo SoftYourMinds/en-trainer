@@ -36,6 +36,7 @@ export class CollectionComponent implements OnInit {
   }
 
   getCollectionFullLearned() {
+    if(this.collection.fullLearned.length === 0) return false;
     const isLearned = this.collection.fullLearned.filter(el => el === false);
     return isLearned.length ? false : true;
   }

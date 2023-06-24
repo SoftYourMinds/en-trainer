@@ -62,8 +62,8 @@ export class CollectionService {
 
   }
 
-  getNumberOfAllCollections():Observable<number> {
-    return this.http.get<number>(`${BASE_URL}/collections/count/`);
+  getNumberOfAllCollections(collection_id: string):Observable<number> {
+    return this.http.get<number>(`${BASE_URL}/collections/count/${collection_id}`);
   }
 
   getAncestorsByCollectionId(collection_id: string):Observable<ICollection[]> {

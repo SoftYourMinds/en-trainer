@@ -7,9 +7,14 @@
     </mat-card-header>    
        
     <mat-card-content class="repeat__content">
-        <div class="words-count">50</div>
+        <div class="words-count">{{wordsForTraining}}</div>
         <mat-card-actions >
-            <button mat-flat-button color="primary">ТРЕНУВАТИ</button>
+            <button 
+                [disabled]="wordsForTraining ? false : true"
+                mat-flat-button 
+                color="primary">
+                ТРЕНУВАТИ
+            </button>
         </mat-card-actions>
     </mat-card-content>
     

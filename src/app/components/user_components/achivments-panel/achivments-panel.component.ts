@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TempService } from 'src/app/services/temp.service';
+import { WordService } from 'src/app/services/word.service';
 
 export interface IProgressRateItem {
   filled: boolean;
@@ -10,33 +12,43 @@ export interface IProgressRateItem {
   styleUrls: ['./achivments-panel.component.scss']
 })
 export class AchivmentsPanelComponent implements OnInit {
-  lernedWordsForDayCount: number =  20;
-  learnedWordsForAllTime: number = 100;
+  dayliLearnedWordsCount: number = 0;
+  startdayliLearnedWordsCount: number = 0;
+  learnedWordsForAllTime: number = 0;
 
   progressItems: IProgressRateItem[] = new Array(10); 
   cupFilled: boolean = false;
 
-  constructor() {
-  }
-  
-  ngOnInit(): void {
-    this.setProgressRate();
+  constructor(
+    private TempService: TempService,
+    private WordService: WordService,
+  ) { }
     
+  ngOnInit(): void {
+    this.setProgressRate( this.startdayliLearnedWordsCount);    
+    this.TempService.getDailyLearnedWords().subscribe((res) => {
+      this.dayliLearnedWordsCount = res;
+    })
+    this.WordService.getTotalLearnedWordCount().subscribe((result) => {
+      this.learnedWordsForAllTime = result;
+    })
   }
 
-  setProgressRate() {
+  ngDoCheck(): void {
+    if(this.dayliLearnedWordsCount === this.startdayliLearnedWordsCount) return
+    this.setProgressRate(this.dayliLearnedWordsCount)
+  }
+
+  setProgressRate(count: number) {
+    this.startdayliLearnedWordsCount = this.dayliLearnedWordsCount
     for(let i = 0; i < 10; i++) {
-      if(i < this.lernedWordsForDayCount) this.progressItems[i] = {filled: true}
+      if(i < count) this.progressItems[i] = {filled: true}
       else this.progressItems[i] = {filled: false}
     }
-    // this.progressItems.map((el, i) => {
-    //   if(i < this.lernedWordsForDayCount) el = {filled: true}
-    //   else el = {filled: false}
-    // })
-    if(this.lernedWordsForDayCount >= 10) {
+  
+    if(this.dayliLearnedWordsCount >= 10) {
       this.cupFilled = true;
     } 
-    console.log(this.progressItems)
   } 
 
 

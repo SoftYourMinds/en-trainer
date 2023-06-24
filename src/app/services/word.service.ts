@@ -49,6 +49,8 @@ export class WordService {
     this.PagerWordsParamsSubject.next(newPagerParams)
   }
 
+  // USING HTTP METHODS
+
   addNewWord(word: ISendWord): Observable<IWord> {
     return this.http.post<IWord>(`${BASE_URL}/word/create/`, word);
   }
@@ -77,6 +79,16 @@ export class WordService {
   getTaskChoice(collection_id: string, word_id: string): Observable<string[]> {
     return this.http.get<string[]>(`${BASE_URL}/word/task/choice/${collection_id}&${word_id}`);
   }
+  
+  getTotalLearnedWordCount(): Observable<number> {
+    return this.http.get<number>(`${BASE_URL}/word/total/count/`);
+  }
+  
+  getGlobalTrainingCount(): Observable<number> {
+    return this.http.get<number>(`${BASE_URL}/words/globalTrainingCount/`);
+  }
+  
 
+  
   
 }
