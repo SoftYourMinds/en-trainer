@@ -1,7 +1,7 @@
 <li class="card">
     
     <div class="done"
-        [ngStyle]="{'display': collection.fullLearned ? 'flex' : 'none'}">
+        [ngStyle]="{'display': getCollectionFullLearned() ? 'flex' : 'none'}">
         <div class="done-filter"></div>
         <mat-icon>done</mat-icon>
     </div>

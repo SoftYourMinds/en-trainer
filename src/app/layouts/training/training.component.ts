@@ -50,9 +50,9 @@ export class TrainingComponent implements OnInit {
       id: this.words[this.currentIndex]._id,
       result: event
     })
-    if(this.words.length )
+    // 
     this.currentIndex+=1;
-    console.log(this.answers);
+    console.log(this.currentIndex);
   }
   
   getCurrentWord() {

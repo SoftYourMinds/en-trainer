@@ -2,7 +2,12 @@
     <div class="card-inside-cont">
 
         <div class="description">
-            <button mat-icon-button color="primary">
+            <button 
+                (click)="speak(word.word)"
+                [matTooltip]="word.phonetic"
+                matTooltipPosition="left"
+                mat-icon-button 
+                color="primary">
                 <mat-icon>volume_up</mat-icon>
             </button>
             <a class="card-description">
@@ -37,7 +42,9 @@
           
     
             <button 
-            (click)="onExpansionPanel($event)"
+                (click)="onExpansionPanel($event)"
+                [ngStyle]="{'transition': 'all 0.5s ease-in-out',
+                            'rotate': isExpansed ? '180deg' : '0deg'}"
                 mat-icon-button
                 class="edit-btn">
                 <mat-icon>keyboard_arrow_down</mat-icon>

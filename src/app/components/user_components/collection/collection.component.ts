@@ -35,5 +35,8 @@ export class CollectionComponent implements OnInit {
     this.router.navigate(['/collection', this.collection._id, this.collection.name]);
   }
 
-
+  getCollectionFullLearned() {
+    const isLearned = this.collection.fullLearned.filter(el => el === false);
+    return isLearned.length ? false : true;
+  }
 }

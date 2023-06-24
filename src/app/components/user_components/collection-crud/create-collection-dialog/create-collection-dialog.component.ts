@@ -73,7 +73,8 @@ export class CreateCollectionDialogComponent implements OnInit {
       parent_id: this.parent_id,
       user_id: user_id,
       images: [],
-      date: new Date()            
+      date: new Date(),
+      fullLearned: [false]            
     }
     this.CollectionService.createCollection(collection).subscribe({
       next: () => {

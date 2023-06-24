@@ -6,16 +6,16 @@
         <div class="tests" 
             [ngSwitch]="getCurrentWordStatus()">
             <app-write-task
-                *ngSwitchCase="0"
+                *ngSwitchCase="75"
                 (writeAnswer)="getAnswer($event)" 
                 [writeWord]="getCurrentWord()">
             </app-write-task>
-            <!-- <app-audio-puzzle 
-                *ngSwitchCase="0"
+            <app-audio-puzzle 
+                *ngSwitchCase="50"
                 (audioPuzzleAnswer)="getAnswer($event)" 
                 [audioPuzzleWord]="getCurrentWord()">
-            </app-audio-puzzle> -->
-            <!-- <app-task-choise 
+            </app-audio-puzzle>
+            <app-task-choise 
                 *ngSwitchCase="0"
                 (answer)="getAnswer($event)" 
                 [word]="getCurrentWord()">
@@ -24,10 +24,7 @@
                 *ngSwitchCase="25"
                 (listeningAnswer)="getAnswer($event)" 
                 [listeningWord]="getCurrentWord()">
-            </app-listening-task> -->
-            <div *ngSwitchCase="25"></div>
-            <div *ngSwitchCase="50"></div>
-            <div *ngSwitchCase="75"></div>
+            </app-listening-task>
             <div *ngSwitchCase="null">
                 <mat-spinner></mat-spinner>
             </div>

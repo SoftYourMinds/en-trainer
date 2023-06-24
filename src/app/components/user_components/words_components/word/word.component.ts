@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { WordService } from 'src/app/services/word.service';
 import { ProgressBarService } from 'src/app/shared/components/progress-bar/progress-bar.service';
 import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
+import { SpeachSyntesistService } from 'src/app/shared/fitches/speach-syntesist.service';
 import { IWord } from 'src/app/shared/models/word.model';
 
 @Component({
@@ -16,7 +17,8 @@ export class WordComponent {
   constructor(
     private ProgressBarService: ProgressBarService,
     private WordService: WordService,
-    private SnackBarService: SnackBarService
+    private SnackBarService: SnackBarService,
+    private SpeachSyntesistService: SpeachSyntesistService,
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +27,11 @@ export class WordComponent {
   onExpansionPanel(event: Event): void {
     event.stopPropagation();
     this.isExpansed = !this.isExpansed;
+    
+  }
+
+  speak(word: string) {
+    this.SpeachSyntesistService.speakText(word);
   }
 
   onDeleteWord() {
