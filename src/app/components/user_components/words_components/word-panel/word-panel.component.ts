@@ -10,23 +10,23 @@ import { WordService } from 'src/app/services/word.service';
 export class WordPanelComponent implements OnInit {
   @Input() collection_id: string;
   trainingWordsCount: number = 0;
-  oldCollectionId: string;
+
   constructor(
     private WordService: WordService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-  }
-
-  ngDoCheck(): void {
-    if(this.oldCollectionId === this.collection_id) return;
     this.initWordPanel();
   }
+
+  // ngDoCheck(): void {
+  //   if(this.oldCollectionId === this.collection_id) return;
+  //   this.initWordPanel();
+  // }
   
   initWordPanel() {
-    this.oldCollectionId = this.collection_id;
-    this.WordService.getTrainingWords(this.collection_id).subscribe((res) => {
+    this.WordService.words$.subscribe((res) => {
       this.trainingWordsCount = res.length;
     })
   }
@@ -34,7 +34,5 @@ export class WordPanelComponent implements OnInit {
   openTrainingPage() {
     this.router.navigate(['/training', this.collection_id]);
   }
-
-
 
 }

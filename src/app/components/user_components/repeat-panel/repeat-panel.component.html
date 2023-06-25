@@ -10,6 +10,7 @@
         <div class="words-count">{{wordsForTraining}}</div>
         <mat-card-actions >
             <button 
+                [routerLink]="[ '/training','global']"
                 [disabled]="wordsForTraining ? false : true"
                 mat-flat-button 
                 color="primary">
