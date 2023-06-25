@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { BASE_URL } from 'config';
 import { ISendWord, IWord } from '../shared/models/word.model';
 import { IPagerParams } from './collection.service';
+import { ITempWords } from './temp.service';
 
 @Injectable({
   providedIn: 'root'
@@ -88,7 +89,12 @@ export class WordService {
     return this.http.get<number>(`${BASE_URL}/words/globalTrainingCount/`);
   }
   
+  updateWordsStatus(wordIds: ITempWords): Observable<string> {
+    return this.http.put<string>(`${BASE_URL}/word/update/status/`, wordIds);
+  }
 
-  
+  getCollectionWordsForTrainingCount(collection_id: string): Observable<number> {
+    return this.http.get<number>(`${BASE_URL}/words/collectionTrainingCount/${collection_id}`);
+  }
   
 }

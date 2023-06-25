@@ -1,0 +1,84 @@
+:host  {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+mat-card {
+    width: 80%;
+    height: 24rem;
+}
+
+mat-card-content {
+    width: 100%;
+    height: 24rem;
+}
+
+.result-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 17rem;
+    gap: 1rem;
+}
+
+.spinner-cont {
+    position: relative;
+    height: 7rem;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        font-size: 2em;
+        font-weight: 500;
+        color: #3f51b5;
+    }
+}
+
+.status, .spinner-back {
+    top: 0;
+    left: 0;
+    height: 7rem !important;
+    width: 7rem !important;
+    position: absolute;
+}
+
+.spinner-back {
+    z-index: 1;
+    opacity: 0.5;
+    z-index: 1;
+    filter: contrast(0.2);
+    opacity: 0.1;
+
+}
+
+.status {
+    z-index: 2;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.btn-cont {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    width: 50%;
+   
+    text-transform: uppercase;
+}

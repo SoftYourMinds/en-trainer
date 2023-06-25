@@ -4,6 +4,7 @@ import { SliderService } from 'src/app/shared/components/slider/slider.service';
 import { SnackBarService } from 'src/app/shared/components/snack-bar/snack-bar.service';
 import { IWord } from 'src/app/shared/models/word.model';
 import { shuffleArray } from 'src/app/shared/fitches/shuffleArray';
+import { SpeachSyntesistService } from 'src/app/shared/fitches/speach-syntesist.service';
 
 @Component({
   selector: 'app-task-choise',
@@ -23,6 +24,7 @@ export class TaskChoiseComponent implements OnInit {
 
   constructor(
     private WordService: WordService,
+    private SpeachSyntesists: SpeachSyntesistService
   ) {}
 
   ngOnInit(): void {
@@ -62,6 +64,7 @@ export class TaskChoiseComponent implements OnInit {
     console.log(event.value)
     if(this.taskWords[event.value] === this.word.word) {
       this.afterCorrectAnswer = true;
+      this.SpeachSyntesists.speakText(this.correctAnswer);
     } 
   }
 

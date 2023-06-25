@@ -25,8 +25,18 @@
                 (listeningAnswer)="getAnswer($event)" 
                 [listeningWord]="getCurrentWord()">
             </app-listening-task>
+            <div *ngSwitchCase="505"> 
+                <app-result-training
+                    [trueAnswers]="trueAnswers"
+                    [allAnswersCount]="allAnswersCount"
+                    [progressValue]="progressValue"
+                    [collection_id]="collection_id"
+                    [countLastWords]="countLastWords"
+                    (isContinue)="continueTrainingSession($event)">
+                </app-result-training>
+            </div>
             <div *ngSwitchCase="null">
-                <mat-spinner></mat-spinner>
+                <!-- processing result -->
             </div>
         </div>
 

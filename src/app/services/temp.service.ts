@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { BASE_URL } from 'config';
 import { Observable } from 'rxjs';
 
+export interface ITempWords {
+  wordIds: string[]
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +14,8 @@ export class TempService {
 
   constructor(private http: HttpClient) { }
 
-  addWordsToTemp(wordsIds: string[]): Observable<string> {
-    return this.http.post<string>(`${BASE_URL}/temp/add`, wordsIds);
+  addWordsToTemp(wordIds: ITempWords): Observable<string> {
+    return this.http.post<string>(`${BASE_URL}/temp/add`, wordIds);
   }
 
   getDailyLearnedWords(): Observable<number> {
