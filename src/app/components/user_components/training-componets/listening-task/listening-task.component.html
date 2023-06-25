@@ -1,0 +1,73 @@
+<ng-container *ngIf="isListeningTaskInit">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <span
+                [ngStyle]="{'opacity': afterCorrectAnswer ? '1' : '0'}">
+                        {{listeningWord.word}}
+                    </span>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <span [ngStyle]="{'opacity': afterCorrectAnswer ? '1' : '0'}">[{{listeningWord.phonetic}}]</span>
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="preview-cont">
+                <div class="image-cont">
+                    <div class="img-boundary">
+                        <div class="card-image"
+                            [ngStyle]="getBackgroundStyle()">
+                        </div>
+                    </div>
+                        
+                    <div class="volume-cont">
+                        <button 
+                            speachSyntesist [speachText]="listeningWord.word"
+                            mat-mini-fab
+                            color="primary" 
+                            class="volume"
+                            mat-ripple>
+                            <mat-icon>volume_up</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="radio-cont">
+
+                <mat-radio-group 
+                    class = "answers" 
+                    [(ngModel)]="selectedValue"
+                    (change)="check($event)">
+                    <mat-radio-button 
+                        *ngFor="let option of taskWords; let i = index"
+                        [disabled]="afterCorrectAnswer && option != correctAnswer ? true : false"
+                        [color]="afterCorrectAnswer ? 'primary' : 'warn'"
+                        [value]="i">
+                        {{option}}
+                    </mat-radio-button> 
+                </mat-radio-group>
+                
+            </div>
+            
+
+        </mat-card-content>    
+
+        <mat-card-actions>
+        
+            <button 
+                (keydown.enter)="emitRespond()"
+                (click)="emitRespond()"
+                mat-flat-button
+                color="primary"
+                [disabled]="afterCorrectAnswer ? false : true">
+                Далі
+            </button>
+        
+        </mat-card-actions>
+
+    </mat-card>
+</ng-container>
+
+

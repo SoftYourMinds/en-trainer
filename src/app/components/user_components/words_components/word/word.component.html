@@ -1,0 +1,69 @@
+<li class="card">
+    <div class="card-inside-cont">
+
+        <div class="description">
+            <button 
+                (click)="speak(word.word)"
+                [matTooltip]="word.phonetic"
+                matTooltipPosition="left"
+                mat-icon-button 
+                color="primary">
+                <mat-icon>volume_up</mat-icon>
+            </button>
+            <a class="card-description">
+                <h2>{{word.word}}</h2>
+                <p>{{word.translations[0]}}</p>
+            </a>
+        </div>
+        
+        <div class="divider"></div>
+    
+        <div class="left-side-card-cont">
+            <div class="spinner-cont" 
+                matTooltip="Прогрес вивчення слова">
+                <mat-progress-spinner
+                    class="status"
+                    color="primary"
+                    mode='determinate'
+                    [value]="word.status">
+                </mat-progress-spinner>
+                <span>{{word.status}}%</span>
+                <mat-progress-spinner
+                    class="spinner-back"
+                    mode='determinate'
+                    [value]="100">
+                </mat-progress-spinner>
+            </div>
+            
+    
+            <a class="card-image">
+                <app-img-lazy-load [img]="word.currentImage"></app-img-lazy-load>
+            </a>
+          
+    
+            <button 
+                (click)="onExpansionPanel($event)"
+                [ngStyle]="{'transition': 'all 0.5s ease-in-out',
+                            'rotate': isExpansed ? '180deg' : '0deg'}"
+                mat-icon-button
+                class="edit-btn">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
+        </div>
+
+    </div>
+    
+    <div class="expansion-panel" *ngIf="isExpansed">
+        <app-examples [examples]="word.examples"></app-examples>
+        <button
+            mat-icon-button 
+            class="delete"
+            (click)="onDeleteWord()"
+            matTooltip="Видалити слово">
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+     </div>
+    
+</li>
+
+

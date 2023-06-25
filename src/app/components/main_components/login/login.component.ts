@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
         
       },
       error: (error) => {
+         console.log("login",error)
          this.SnackBarService.openSnackbar(error.error.message, true);
          this.loginForm.enable;
          this.ProgressBarService.hideProgressBar()

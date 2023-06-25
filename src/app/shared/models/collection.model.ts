@@ -6,7 +6,7 @@ export interface ICollection {
     currentImage: string,
     images: string[],
     date: Date,
-    fullLearned?: boolean;
+    fullLearned: boolean[];
     wordsCount?: number;
   }
   

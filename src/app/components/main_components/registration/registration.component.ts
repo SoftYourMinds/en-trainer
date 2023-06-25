@@ -62,6 +62,7 @@ export class RegistrationComponent implements OnInit {
         })
       ).subscribe({
         error: (error) => {
+          console.log('registration-component',error)
           this.ProgressBar.hideProgressBar()
           this.SnackBar.openSnackbar(error.error.message, false);
           this.registrationForm.enable(); // Enable the form

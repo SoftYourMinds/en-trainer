@@ -1,0 +1,28 @@
+:host {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.examples-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-decoration: none;
+    // gap: 0.4em;
+}
+h2 {
+    font-size: 1.35rem;
+    margin: 0;
+    line-height: 1;
+}
+
+p {
+    margin: 0;
+    color: #515151;
+}

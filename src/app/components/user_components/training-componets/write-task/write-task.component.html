@@ -1,0 +1,84 @@
+<ng-container *ngIf="isWordTaskInit">
+    <mat-card>
+        <mat-card-header>
+        
+            <mat-card-title>
+                <span>                
+                    {{writeWord.translations[0]}}
+                </span>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <span [ngStyle]="{'opacity':'0'}">[ {{writeWord.phonetic}} ]</span>
+            </mat-card-subtitle>
+        
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="preview-cont">
+                <div class="image-cont">
+                    <div class="img-boundary">
+                        <div class="card-image"
+                            [ngStyle]="getBackgroundStyle()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="user-answer-cont">
+                <div class="user-answer">
+                    <mat-form-field 
+                        appearance="outline" style="margin-bottom: -1.25em;"
+                        [color]="getInputColor()">
+                        <input 
+                            style="text-align: center"
+                            matInput 
+                            [disabled]="afterAnswer"
+                            [ngStyle]="{'color': afterAnswer ? isCorrect ? '#3f51b5' : 'red' : 'black'}"
+                            [placeholder]="afterAnswer ? '' : letterPlaceholder"
+                            [(ngModel)]="userInputWord"
+                            #taskInput>
+
+                    </mat-form-field>
+                    <div class="border-indicator"
+                        [ngStyle]="{'borderRadius': afterAnswer ? '7px' : '0px',
+                        'border': afterAnswer ? isCorrect ? '2px solid #3f51b5' : '2px solid red' : '0px'}">
+                    </div>
+                    <div class="correct-translation"
+                        [ngStyle]="{'display': afterAnswer && !isCorrect ? 'flex' : 'none'}">
+                        <span>{{writeWord.word}}</span>
+                    </div>
+                </div>
+                
+            </div>
+
+
+        </mat-card-content>    
+
+        <mat-card-actions>
+            <ng-container *ngIf="afterAnswer; else elseTemplate">
+                 
+                <button 
+                    (click)="emitRespond()"
+                    mat-flat-button
+                    color="primary">
+                    Далі
+                </button>
+   
+            </ng-container>
+            <ng-template #elseTemplate>
+                <button 
+                    (click)="check()"
+                    mat-stroked-button
+                    color="primary">
+                    Перевірити
+                </button>    
+            </ng-template>
+            
+            
+        
+        </mat-card-actions>
+
+    </mat-card>
+</ng-container>
+
+

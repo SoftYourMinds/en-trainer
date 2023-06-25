@@ -4,6 +4,7 @@ import { ICollection } from '../shared/models/collection.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { BASE_URL } from 'config';
 import { HttpParams } from '@angular/common/http';
+import { IWord } from '../shared/models/word.model';
 
 export interface IPagerParams {
   page: number,
@@ -61,8 +62,8 @@ export class CollectionService {
 
   }
 
-  getNumberOfAllCollections():Observable<number> {
-    return this.http.get<number>(`${BASE_URL}/collections/count/`);
+  getNumberOfAllCollections(collection_id: string):Observable<number> {
+    return this.http.get<number>(`${BASE_URL}/collections/count/${collection_id}`);
   }
 
   getAncestorsByCollectionId(collection_id: string):Observable<ICollection[]> {

@@ -1,0 +1,8 @@
+<ul class="list">
+    <app-word
+        *ngFor="let word of words"
+        [word]="word">
+    </app-word>
+</ul>
+
+<app-load-more (onPageEnd)="loadMoreWords($event)" [loading]="isWordsLoadMore" [isFullLoaded]="isWordsFullLoad"></app-load-more>

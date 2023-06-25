@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container">
+    <ng-container *ngIf="isTrainingInit">
+        
+        <div class="tests" 
+            [ngSwitch]="getCurrentWordStatus()">
+            <app-write-task
+                *ngSwitchCase="75"
+                (writeAnswer)="getAnswer($event)" 
+                [writeWord]="getCurrentWord()">
+            </app-write-task>
+            <app-audio-puzzle 
+                *ngSwitchCase="50"
+                (audioPuzzleAnswer)="getAnswer($event)" 
+                [audioPuzzleWord]="getCurrentWord()">
+            </app-audio-puzzle>
+            <app-task-choise 
+                *ngSwitchCase="0"
+                (answer)="getAnswer($event)" 
+                [word]="getCurrentWord()">
+            </app-task-choise>
+            <app-listening-task
+                *ngSwitchCase="25"
+                (listeningAnswer)="getAnswer($event)" 
+                [listeningWord]="getCurrentWord()">
+            </app-listening-task>
+            <div *ngSwitchCase="505"> 
+                <app-result-training
+                    [trueAnswers]="trueAnswers"
+                    [allAnswersCount]="allAnswersCount"
+                    [progressValue]="progressValue"
+                    [collection_id]="collection_id"
+                    [countLastWords]="countLastWords"
+                    (isContinue)="continueTrainingSession($event)">
+                </app-result-training>
+            </div>
+            <div *ngSwitchCase="null">
+                <!-- processing result -->
+            </div>
+        </div>
+
+    </ng-container>
+    
+</div>
+
+<app-footer></app-footer>   

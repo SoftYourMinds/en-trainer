@@ -1,0 +1,54 @@
+<ng-container>
+    <mat-card>
+        <mat-card-content>
+           
+            <div class="result-cont">
+                <h1>Так тримати, ти молодець</h1>
+                <div class="spinner-cont" 
+                    matTooltip="Прогрес вивчення слова">
+                    <mat-progress-spinner
+                        class="status"
+                        color="primary"
+                        mode='determinate'
+                        [value]="progressValue">
+                    </mat-progress-spinner>
+                    <span>{{trueAnswers}}/{{allAnswersCount}}</span>
+                    <mat-progress-spinner
+                        class="spinner-back"
+                        mode='determinate'
+                        [value]="100">
+                </mat-progress-spinner>
+            </div>
+
+            </div>
+            
+        </mat-card-content>    
+
+        <mat-card-actions>
+        <div class="btn-cont">
+            <button 
+                [disabled]="allAnswersCount === 0 ? true : false"
+                (click)="onContinue()"
+                mat-flat-button
+                color="primary">
+                Продовжити
+            </button>
+
+            <button 
+                routerLink='/home'
+                mat-stroked-button
+                color="primary">
+                переглянути колекції
+            </button>
+            
+
+        </div>
+            
+        
+        </mat-card-actions>
+
+    </mat-card>
+</ng-container>
+
+
+

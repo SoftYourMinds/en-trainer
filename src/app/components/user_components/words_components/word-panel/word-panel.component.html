@@ -1,0 +1,23 @@
+<mat-card>
+
+    <mat-card-content>
+       
+        <div class="panel-search">
+            <app-search [collection_id]="collection_id"></app-search>
+        </div>
+
+        <button 
+            [disabled]="trainingWordsCount ? false : true"
+            mat-flat-button 
+            color="primary"
+            class="learn-btn"
+            (click)="openTrainingPage()">
+            Вивчити
+        </button>
+
+    </mat-card-content>
+
+</mat-card>
+        
+
+

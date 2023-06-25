@@ -1,0 +1,35 @@
+<div class="search">
+
+    <mat-form-field style="margin-bottom: -1.25em" appearance="outline">
+      <mat-label>Додати слово</mat-label>
+      <input matInput #searchInput [(ngModel)]="searchTerm" (input)="onInput()" />
+      <button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="search-results" *ngIf="searchResults.length">
+      <mat-list>
+        <mat-list-item *ngFor="let result of searchResults" (click)="addNew($event)">
+          <div mat-line>{{ result }}</div>
+          <button mat-icon-button color="primary" [attr.aria-label]="" aria-label="Add" value="word">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="no-results" *ngIf="!isLoading && searchResults.length === 0 && searchTerm.trim() !== ''">
+      <ng-container *ngIf="isSerchedWordExist else elseTemplate">
+        Слово було додано раніше 
+      </ng-container>
+      <ng-template #elseTemplate>
+        Нічого не знайдено для "{{ searchTerm }}" 
+      </ng-template>
+    </div>
+    
+   
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+
+  

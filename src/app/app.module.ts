@@ -37,6 +37,19 @@ import { EditCollectionsDialogComponent } from './components/user_components/col
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
 import { CollectionPageComponent } from './layouts/collection-page/collection-page.component';
 import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
+import { SearchComponent } from './components/user_components/search/search.component';
+import { WordPanelComponent } from './components/user_components/words_components/word-panel/word-panel.component';
+import { WordsViewComponent } from './components/user_components/words_components/words-view/words-view.component';
+import { WordComponent } from './components/user_components/words_components/word/word.component';
+import { ExamplesComponent } from './components/user_components/words_components/examples/examples.component';
+import { TrainingComponent } from './layouts/training/training.component';
+import { TaskChoiseComponent } from './components/user_components/training-componets/task-choise/task-choise.component';
+import { SpeachSyntesistDirective } from './shared/fitches/speach-syntesist.directive';
+import { ListeningTaskComponent } from './components/user_components/training-componets/listening-task/listening-task.component';
+import { AudioPuzzleComponent } from './components/user_components/training-componets/audio-puzzle/audio-puzzle.component';
+import { WriteTaskComponent } from './components/user_components/training-componets/write-task/write-task.component';
+import { ResultTrainingComponent } from './components/user_components/training-componets/result-training/result-training.component';
+
 
 @NgModule({
   declarations: [
@@ -67,6 +80,18 @@ import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumb
     LoadMoreComponent,
     CollectionPageComponent,
     BreadcrumbsComponent,
+    SearchComponent,
+    WordPanelComponent,
+    WordsViewComponent,
+    WordComponent,
+    ExamplesComponent,
+    TrainingComponent,
+    TaskChoiseComponent,
+    SpeachSyntesistDirective,
+    ListeningTaskComponent,
+    AudioPuzzleComponent,
+    WriteTaskComponent,
+    ResultTrainingComponent,
   ],
 
   imports: [
